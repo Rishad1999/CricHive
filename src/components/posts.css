@@ -1,0 +1,26 @@
+.posts{
+    flex: 9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.Recent{
+    width: 500px;
+    height: 300px;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.StoryRight{
+    flex: 6;
+    margin-top: 60px;
+    text-align: justify;
+}
+
+.StoryLeft{
+    flex: 6;
+    margin-top: 60px;
+    text-align: justify;
+}
