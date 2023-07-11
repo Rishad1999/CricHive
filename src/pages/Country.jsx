@@ -24,7 +24,7 @@ export const Country = () => {
 
   return (
     <>
-      <div className="bg-cover bg-center min-h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="bg-cover bg-center min-h-screen" style={{ backgroundImage: url($,{backgroundImage}) }}>
         <div className="Playerbar">
           <div className="PlayerbarProfile">
             <div className="PlayerbarItem">
@@ -100,4 +100,3 @@ export const Country = () => {
     </>
   );
 };
-
