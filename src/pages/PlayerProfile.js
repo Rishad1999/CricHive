@@ -15,19 +15,8 @@ import photo8 from "../assets/photo8.jpg";
 import photo9 from "../assets/photo9.jpg";
 import photo10 from "../assets/photo10.jpg";
 
-import {
-  getFirestore,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "firebase/firestore";
-
 export const PlayerProfile = () => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
-  const [results, setResults] = useState([]);
-  const [totalRuns, setTotalRuns] = useState(0);
-  const [totalWickets, setTotalWickets] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,82 +43,44 @@ export const PlayerProfile = () => {
     setCurrentPhoto(selectedIndex);
   };
 
-  const handleSearchResults = async (searchResults) => {
-    setResults(searchResults);
-    await fetchPlayerData(searchResults);
-  };
+  return (
+    <>
+      <div className="mx-20 mt-5 rounded-lg">
+        <SearchPlayer />
+      </div>
 
-  const fetchPlayerData = async (searchResults) => {
-    try {
-      const db = getFirestore();
-      const battingQuerySnapshot = await getDocs(
-        query(
-          collection(db, "Batting"),
-          where("name", "==", searchResults[0].full_name),
-          where("Year", "==", 2021)
-        )
-      );
-      const bowlingQuerySnapshot = await getDocs(
-        query(
-          collection(db, "Bowling"),
-          where("Name", "==", searchResults[0].full_name),
-          where("Year", "==", 2021)
-        )
-      );
-
-      let totalRuns = 0;
-      let totalWickets = 0;
-      let battingCount = 0;
-      let bowlingCount = 0;
-
-      battingQuerySnapshot.forEach((doc) => {
-        const data = doc.data();
-        totalRuns += data.Runs;
-        battingCount++;
-      });
-      setTotalRuns(totalRuns);
-
-      bowlingQuerySnapshot.forEach((doc) => {
-        const data = doc.data();
-        totalWickets += data.Wickets;
-        bowlingCount++;
-      });
-      setTotalWickets(totalWickets);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  if (results.length > 0) {
-    return (
-      <>
-        <div>{totalRuns}</div>
-        <div className="mx-20 mt-5 rounded-lg">
-          <SearchPlayer onSearchResults={handleSearchResults} />
-        </div>
-
-        <div className="shadow-2xl mx-20 mt-5 rounded-lg h-32 sm:h-48 md:h-64 lg:h-96 bg-gradient-to-r from-gray-500 to-slate-300 relative ...">
-          <div className="absolute bottom-0 left-0 ml-10 mb-10">
-            <h1 className="text-white text-4xl">M.S. Dhoni</h1>
-            <p className="text-white text-3xl">
-              India <span>| Wicket Keeper</span>
-            </p>
-          </div>
-          <div className="w-60 absolute bottom-0 right-10 ...">
-            <img src={PlayerImg} alt="Logo" />
-          </div>
-        </div>
-
-        {results.map((result) => (
-          <div key={result.id}>
-            <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg mx-20 mt-5 shadow-xl">
-              <div className="grid grid-cols-3 gap-4 font-medium">
-                <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-                  <h2>FULL NAME</h2>
-                  <p>{result.full_name}</p>
-                </div>
-                {/* Other fields */}
-              </div>
+      <div className="relative mt-5 w-full">
+        <Carousel
+          selectedItem={currentPhoto}
+          onChange={handleSwipe}
+          autoPlay
+          infiniteLoop
+          interval={5000}
+          showStatus={false}
+          showThumbs={false}
+          showArrows={false}
+          emulateTouch
+          swipeable
+        >
+          {photos.map((photo, index) => (
+            <div key={index}>
+              <img src={photo} alt={`Slide ${index + 1}`} />
             </div>
-          </div>
-        ))}
+          ))}
+        </Carousel>
+
+        <div className="absolute top-0 left-0 right-0 flex justify-center mt-2">
+          {photos.map((_, index) => (
+            <div
+              key={index}
+              className={`${
+                index === currentPhoto ? "bg-indigo-500" : "bg-indigo-200"
+              } h-2 w-2 mx-1 rounded-full cursor-pointer`}
+              onClick={() => setCurrentPhoto(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
