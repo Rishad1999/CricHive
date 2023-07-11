@@ -6,8 +6,11 @@ import {
   PlayerProfile,
   AboutUs,
   BuyNow,
-  CountryIndia,
 } from "../pages";
+
+import {
+  CountryIndia,
+} from "../pages/countries";
 
 import { NavBar } from "../components";
 // import { Home } from "../components/Home";
