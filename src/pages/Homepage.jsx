@@ -6,8 +6,26 @@ import "./homepage.css";
 import post_kane from "../assets/homepageAssets/kanewilliamson.png";
 import post_waniya from "../assets/homepageAssets/waniya.png";
 
+import { useEffect, useState } from "react";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../firebase/config";
+
 export const Homepage = () => {
   // const location = useLocation();
+  const [posts, setPosts] = useState([]);
+  const postsRef = collection(db, "player_profile");
+
+  useEffect(() => {
+    async function getPosts(){
+      const data = await getDocs(postsRef);
+      setPosts(data.docs.map((document) => (
+        {...document.data(), id: document.id}))
+      );
+    }
+    console.log("---");
+    getPosts();
+  }, []);
+
   return (
     <>
       <Hero />
@@ -20,7 +38,8 @@ export const Homepage = () => {
         <p className="text-center font-medium">MATCH STORIES</p>
       </div>
 
-      <div class=" flex flex-wrap justify-center space-x-8 mx-auto max-w-screen-xl">
+      { posts.map(post => (
+        <div class=" flex flex-wrap justify-center space-x-8 mx-auto max-w-screen-xl">
         <div class="basis-1/2 p-8">
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link to="#">
@@ -29,26 +48,16 @@ export const Homepage = () => {
             <div className="p-5">
               <Link to="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  Kane Williamson addresses his future as an all-format player
+                  {post.name}
                 </h5>
               </Link>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                The New Zealand skipper did play a good knock of 61 during the
-                mega event but amassed only 178 runs overall at a strike rate of
-                116.33. He plays the role of a top-order anchor in his side,
-                though questions have been raised about his strike rate. At 32,
-                workload management is also something Williamson will have to
-                manage, with him captaining New Zealand in all three formats.
-                Trent Boult, Williamson's teammate, recently declined NZC's
-                central contract so that he could be selective about the formats
-                he wants to play for his country. Williamson also has the option
-                to go down that path but he sees the challenge of playing in all
-                three formats as an enjoyable one.
+                {post.population}
               </p>
             </div>
           </div>
         </div>
-        <div class="basis-1/2 p-8">
+        {/* <div class="basis-1/2 p-8">
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link to="#">
               <img className="rounded-t-lg" src={post_waniya} alt="" />
@@ -74,8 +83,9 @@ export const Homepage = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
+      ))}
 
       <Footer />
     </>

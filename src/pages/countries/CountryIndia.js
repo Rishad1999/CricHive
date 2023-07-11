@@ -1,13 +1,52 @@
 import React from "react";
-import FlagImg from "../assets/12.png";
-import { Footer } from "../components";
+import FlagImg from "../../assets/12.png";
+import { Footer } from "../../components";
 import "tailwindcss/tailwind.css";
+
+import { useEffect, useState } from "react";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 // shadow-2xl mx-auto mt-5 rounded-lg h-auto w-90 lg:w-100 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center
 
 export const CountryIndia = () => {
+  const [player, setPlayer] = useState([]);
+  //const playerRef = collection(db, "countryplayers");
+  //let india = [];
+
+  useEffect(() => {
+    const countryPlayer = async () => {
+      const db = getFirestore();
+      const querySnapshot = await getDocs(
+        query(
+          collection(db, "countryplayers"),
+          where("country", "==", "India")
+        )
+      );
+
+      querySnapshot.forEach((doc) => {
+        let data = doc.data();
+
+        setPlayer(data);
+      });
+
+      // const dataArray = querySnapshot.docs.map((doc) => doc.data());
+      // setPlayer(dataArray);
+
+      console.log("run", player.player1);
+    };
+    countryPlayer();
+  }, []);
+
   return (
     <>
+         
+
       <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center">
         <img
           src={FlagImg}
@@ -15,53 +54,57 @@ export const CountryIndia = () => {
           class=" w-100 h-70 lg:w-100 lg:h-120 object-cover object-center"
         />
         <div class="mt-5 text-center">
-          <h1 class="text-black-500 text-3xl lg:text-6xl font-bold mb-6">INDIA</h1>
+          <h1 class="text-black-500 text-3xl lg:text-6xl font-bold mb-6">
+            INDIA
+          </h1>
         </div>
       </div>
 
       <div className="bg-green-50 rounded-lg mx-20 mt-5 shadow-xl">
         <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 font-medium">
+          {/* {player.map((post) => (
+            <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
+              <h2 className="text-xl font-bold text-center">{post[0].player1}</h2>
+            </div>
+          ))} */}
+
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">VIRAT KOHLI</h2>
+            <h2 className="text-xl font-bold text-center">{player.player1}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">ROHIT SHARMA</h2>
+            <h2 className="text-xl font-bold text-center">{player.player2}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">SHIKAR DHAWAN</h2>
+            <h2 className="text-xl font-bold text-center">{player.player3}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">
-              SURYA KUMAR YADAV
-            </h2>
+            <h2 className="text-xl font-bold text-center">{player.player4}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">HARDIK PANDYA</h2>
+            <h2 className="text-xl font-bold text-center">{player.player5}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">RAVINDRA JADEJA</h2>
-          </div>
-          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">RISHABH PANT</h2>
-          </div>
-          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">
-              RAVI CHANDRAN ASHWIN
-            </h2>
-          </div>
-          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">YUZVENDRA CHAHAL</h2>
+            <h2 className="text-xl font-bold text-center">{player.player6}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
             <h2 className="text-xl font-bold text-center">
-              BUVEE KUMAR
+            {player.player7}
             </h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">MOHAMED SHIRAJ</h2>
+            <h2 className="text-xl font-bold text-center">{player.player8}</h2>
           </div>
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
-            <h2 className="text-xl font-bold text-center">JUSPRIT BUMRAH</h2>
+            <h2 className="text-xl font-bold text-center">{player.player9}</h2>
+          </div>
+          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
+            <h2 className="text-xl font-bold text-center">{player.player10}</h2>
+          </div>
+          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
+            <h2 className="text-xl font-bold text-center">{player.player11}</h2>
+          </div>
+          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
+            <h2 className="text-xl font-bold text-center">{player.player12}</h2>
           </div>
         </div>
       </div>
@@ -72,7 +115,6 @@ export const CountryIndia = () => {
         </p>
       </div>
 
-      
       {/* ////////////////////////// New Table */}
 
       <div className="shadow-xl rounded-lg mx-20 mt-5 mb-5">
