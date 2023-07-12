@@ -1,4 +1,33 @@
-export const SearchPlayer = () => {
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
+import { useState } from "react";
+
+export const SearchPlayer = ({ onSearchResults }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(searchQuery);
+      const db = getFirestore(); // Initialize Firestore using the Firebase app instance
+      const querySnapshot = await getDocs(
+        query(collection(db, "players"), where("name", "==", searchQuery))
+      );
+      console.log("DOCS.DATA", querySnapshot.docs);
+      const results = querySnapshot.docs.map((doc) => doc.data());
+      setSearchResults(results);
+      onSearchResults(results);
+      console.log("result", results);
+    } catch (error) {
+      console.error("Error searching Firestore:", error);
+    }
+  };
   return (
     <form className="flex items-center">
       <label for="simple-search" className="sr-only">
@@ -25,12 +54,15 @@ export const SearchPlayer = () => {
           id="simple-search"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           required
         />
       </div>
       <button
         type="submit"
         className="p-2.5 ml-2 text-sm font-medium text-white bg-emerald-600 rounded-lg border border-blue-700 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        onClick={handleSearch}
       >
         <svg
           className="w-5 h-5"
