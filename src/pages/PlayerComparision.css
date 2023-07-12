@@ -41,6 +41,32 @@
       opacity: 1;
     }
   }
-  
 
+  .page-wrapper {
+    background-image: url("../assets/backgroundImage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .large-image {
+    width: 4000px; /* Set the desired width */
+    height: 1000px; /* Maintain the aspect ratio */
+  }
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animated-image {
+    animation: slide 5s linear infinite;
+    width: 1000px; /* Set the desired width */
+    height: 650px;
+    
+  }
   
