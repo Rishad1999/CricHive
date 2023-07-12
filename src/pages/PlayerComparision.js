@@ -4,6 +4,7 @@ import { SearchPlayer, Footer } from "../components";
 import Player1Img from "../assets/8.png";
 import Player2Img from "../assets/kholiProf.png";
 import vsImg from "../assets/10.jpg";
+import fight from "../assets/fight.jpg";
 
 export const PlayerComparision = () => {
   const [player1, setPlayer1] = useState(null);
@@ -19,17 +20,32 @@ export const PlayerComparision = () => {
   };
 
   return (
+    
     <>
-      <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
-        <div className="mr-6 ml-1">
-          <SearchPlayer onSearchResults={handleSearchResults} />
-        </div>
-
-        <div className=""></div>
-        <div className="ml-6 mr-1">
-          <SearchPlayer onSearchResults={handleSearchResults1} />
-        </div>
+    <div className="page-wrapper">
+     
+    <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
+      <div className="mr-6 ml-1">
+        <SearchPlayer onSearchResults={handleSearchResults} />
       </div>
+
+      <div className=""></div>
+
+      <div className="ml-6 mr-1">
+        <SearchPlayer onSearchResults={handleSearchResults1} />
+      </div>
+
+      
+    </div>
+
+    {(!player1 && !player2) && (
+        <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
+          <div className="col-span-3">
+            <img src={fight} alt="../assets/fight.jpg" className="animated-image" />
+          </div>
+        </div>
+)}
+      
 
       {player1 && (
         <div className="mx-10 p-6">
@@ -291,6 +307,8 @@ export const PlayerComparision = () => {
       )}
 
       <Footer />
+    </div>
+      
     </>
   );
 };
