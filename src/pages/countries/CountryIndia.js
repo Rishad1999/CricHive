@@ -61,16 +61,17 @@ export const CountryIndia = () => {
       </div>
 
       <div className="bg-green-50 rounded-lg mx-20 mt-5 shadow-xl">
-        <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 font-medium">
+        <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 font-medium cursor-pointer">
           {/* {player.map((post) => (
             <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
               <h2 className="text-xl font-bold text-center">{post[0].player1}</h2>
             </div>
           ))} */}
 
-          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
+          <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg ">
             <h2 className="text-xl font-bold text-center">{player.player1}</h2>
           </div>
+
           <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-50 m-3 rounded-lg">
             <h2 className="text-xl font-bold text-center">{player.player2}</h2>
           </div>
