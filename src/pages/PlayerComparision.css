@@ -43,7 +43,7 @@
   }
 
   .page-wrapper {
-    background-image: url("../assets/backgroundImage.jpg");
+    background-image: url("../assets/new.png");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -64,9 +64,10 @@
   }
   
   .animated-image {
-    animation: slide 5s linear infinite;
-    width: 1000px; /* Set the desired width */
+    
+    width: 1600px; /* Set the desired width */
     height: 650px;
+    border-radius: 10px;
     
   }
   
