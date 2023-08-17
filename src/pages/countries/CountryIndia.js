@@ -51,7 +51,7 @@ export const CountryIndia = () => {
         <img
           src={FlagImg}
           alt="Player"
-          class=" w-100 h-70 lg:w-100 lg:h-120 object-cover object-center"
+          class=" w-30 h-40 lg:w-100 lg:h-120 object-cover object-center"
         />
         <div class="mt-5 text-center">
           <h1 class="text-black-500 text-3xl lg:text-6xl font-bold mb-6">

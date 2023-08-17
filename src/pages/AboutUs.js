@@ -66,7 +66,7 @@ export const AboutUs = () => {
               <img
                 src={rish}
                 alt="Team member"
-                className="rounded-full h-100 w-100 shadow-md mb-4"
+                className="rounded-full h-80 w-80 shadow-md mb-4"
               />
               <h3 className="text-lg font-bold text-gray-800">Rishad M.R.M</h3>
               <p className="text-gray-600">UI developer</p>
@@ -75,7 +75,7 @@ export const AboutUs = () => {
               <img
                 src={mun}
                 alt="Team member"
-                className="rounded-full h-120 w-150 shadow-md mb-4"
+                className="rounded-full h-80 w-80 shadow-md mb-4"
               />
               <h3 className="text-lg font-bold text-gray-800">Munzir M.M.M</h3>
               <p className="text-gray-600">UI developer</p>
@@ -84,7 +84,7 @@ export const AboutUs = () => {
               <img
                 src={sadee}
                 alt="Team member"
-                className="rounded-full h-100 w-100 shadow-md mb-4"
+                className="rounded-full h-80 w-80 shadow-md mb-4"
               />
               <h3 className="text-lg font-bold text-gray-800">Sadeepa P</h3>
               <p className="text-gray-600">Backend developer</p>
@@ -93,7 +93,7 @@ export const AboutUs = () => {
               <img
                 src={thisan}
                 alt="Team member"
-                className="rounded-full h-120 w-150 shadow-md mb-4"
+                className="rounded-full h-80 w-80 shadow-md mb-4"
               />
               <h3 className="text-lg font-bold text-gray-800">Sankalpa T</h3>
               <p className="text-gray-600">Backend developer</p>
