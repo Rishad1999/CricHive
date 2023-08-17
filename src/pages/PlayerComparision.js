@@ -3,7 +3,7 @@ import "./PlayerComparision.css";
 import { SearchPlayer, Footer } from "../components";
 import Player1Img from "../assets/8.png";
 import Player2Img from "../assets/kholiProf.png";
-import vsImg from "../assets/10.jpg";
+import vsImg from "../assets/homepageAssets/15.png";
 import fight from "../assets/fight.jpg";
 
 export const PlayerComparision = () => {
