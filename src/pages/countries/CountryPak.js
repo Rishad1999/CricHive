@@ -14,7 +14,7 @@ import {
 
 // shadow-2xl mx-auto mt-5 rounded-lg h-auto w-90 lg:w-100 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center
 
-export const CountryIndia = () => {
+export const CountryPak = () => {
   const [player, setPlayer] = useState([]);
   //const playerRef = collection(db, "countryplayers");
   //let india = [];
@@ -138,7 +138,7 @@ export const CountryIndia = () => {
         />
         <div class="mt-5 text-center">
           <h1 class="text-black-500 text-3xl lg:text-6xl font-bold mb-6">
-            INDIA
+            PAKISTAN
           </h1>
         </div>
       </div>
