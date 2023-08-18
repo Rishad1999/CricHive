@@ -17,7 +17,7 @@ import {
 export const CountryAus = () => {
   const [player, setPlayer] = useState([]);
   //const playerRef = collection(db, "countryplayers");
-  //let india = [];
+  //let Australia = [];
   const [numwin2020, setNumwin2020] = useState([]);
   const [numwin2021, setNumwin2021] = useState([]);
   const [numwin2022, setNumwin2022] = useState([]);
@@ -39,7 +39,7 @@ export const CountryAus = () => {
       const db = getFirestore();
       const querySnapshot = await getDocs(
         query(collection(db, "countryplayers"), 
-        where("country", "==", "India"))
+        where("country", "==", "Australia"))
       );
 
       querySnapshot.forEach((doc) => {
@@ -59,7 +59,7 @@ export const CountryAus = () => {
 
       const querySnapshot1 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2020),
         where("win_and_loss", "==", "Won"))
       );
@@ -70,7 +70,7 @@ export const CountryAus = () => {
 
       const querySnapshot2 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2021),
         where("win_and_loss", "==", "Won"))
       );
@@ -81,7 +81,7 @@ export const CountryAus = () => {
 
       const querySnapshot3 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2022),
         where("win_and_loss", "==", "Won"))
       );
@@ -92,7 +92,7 @@ export const CountryAus = () => {
 
       const querySnapshot4 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2020),
         where("win_and_loss", "==", "Loss"))
       );
@@ -103,7 +103,7 @@ export const CountryAus = () => {
 
       const querySnapshot5 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2021),
         where("win_and_loss", "==", "Loss"))
       );
@@ -114,7 +114,7 @@ export const CountryAus = () => {
 
       const querySnapshot6 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "Australia"),
         where("year", "==", 2022),
         where("win_and_loss", "==", "Loss"))
       );
