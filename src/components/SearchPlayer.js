@@ -2,6 +2,8 @@ import {
   collection,
   getDocs,
   getFirestore,
+  limit,
+  orderBy,
   query,
   where,
 } from "firebase/firestore";
@@ -10,14 +12,22 @@ import { useState } from "react";
 export const SearchPlayer = ({ onSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
       console.log(searchQuery);
       const db = getFirestore(); // Initialize Firestore using the Firebase app instance
+      // const querySnapshot = await getDocs(
+      //   query(collection(db, "players"), where("name", "==", searchQuery))
+      // );
       const querySnapshot = await getDocs(
-        query(collection(db, "players"), where("name", "==", searchQuery))
+        query(
+          collection(db, "players"),
+          orderBy("name"), // Order the results by name
+          where("name", ">=", searchQuery) // Use a case-insensitive comparison
+        )
       );
       console.log("DOCS.DATA", querySnapshot.docs);
       const results = querySnapshot.docs.map((doc) => doc.data());
@@ -28,6 +38,38 @@ export const SearchPlayer = ({ onSearchResults }) => {
       console.error("Error searching Firestore:", error);
     }
   };
+
+  const handleInputChange = async (e) => {
+    console.log("handleInputChange called");
+    setSearchQuery(e.target.value);
+    if (e.target.value.length >= 2) {
+      try {
+        const db = getFirestore();
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "players"),
+            where("name", ">=", e.target.value),
+            where("name", "<=", e.target.value + "\uf8ff"), // Use "\uf8ff" to ensure that suggestions match the beginning of the value
+            orderBy("name"),
+            limit(5)
+          )
+        );
+        const suggestions = querySnapshot.docs.map((doc) => doc.data());
+        setSuggestions(suggestions);
+        console.log("suggestions", suggestions);
+      } catch (error) {
+        console.error("Error fetching suggestions:", error);
+      }
+    } else {
+      setSuggestions([]); // Clear suggestions when input is less than 2 characters
+    }
+  };
+
+  const handleSuggestionClick = (suggestionName) => {
+    setSearchQuery(suggestionName); // Set the suggestion as the search query
+    setSuggestions([]); // Clear suggestions after clicking
+  };
+
   return (
     <form className="flex items-center">
       <label for="simple-search" className="sr-only">
@@ -55,9 +97,23 @@ export const SearchPlayer = ({ onSearchResults }) => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          // onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleInputChange}
           required
         />
+        {searchQuery.length >= 2 && (
+          <ul className="absolute left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+            {suggestions.map((suggestion) => (
+              <li
+                key={suggestion.id} // Replace with the actual unique identifier
+                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSuggestionClick(suggestion.name)}
+              >
+                {suggestion.name}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <button
         type="submit"
@@ -80,6 +136,19 @@ export const SearchPlayer = ({ onSearchResults }) => {
         </svg>
         <span className="sr-only">Search</span>
       </button>
+      {/* {searchQuery.length >= 2 && (
+        <ul className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
+          {suggestions.map((suggestion) => (
+            <li
+              key={suggestion.id} // Replace with the actual unique identifier
+              className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onClick={() => handleSuggestionClick(suggestion.name)}
+            >
+              {suggestion.name}
+            </li>
+          ))}
+        </ul>
+      )} */}
     </form>
   );
 };
