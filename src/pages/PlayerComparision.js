@@ -49,6 +49,32 @@ export const PlayerComparision = () => {
   const [avgeconomyRate2022, setAvgeconomyRate2022] = useState([]);
   console.log("data", player1);
 
+  const [p2totalruns, p2setTotalruns] = useState([]);
+  const [p2totalruns2020, p2setTotalruns2020] = useState([]);
+  const [p2totalruns2021, p2setTotalruns2021] = useState([]);
+  const [p2totalruns2022, p2setTotalruns2022] = useState([]);
+  const [p2batcount, p2setBatcount] = useState([]);
+  const [p2batcount2020, p2setBatcount2020] = useState([]);
+  const [p2batcount2021, p2setBatcount2021] = useState([]);
+  const [p2batcount2022, p2setBatcount2022] = useState([]);  
+  const [p2avgstrikeRate, p2setAvgstrikeRate] = useState([]);
+  const [p2avgstrikeRate2020, p2setAvgstrikeRate2020] = useState([]);
+  const [p2avgstrikeRate2021, p2setAvgstrikeRate2021] = useState([]);
+  const [p2avgstrikeRate2022, p2setAvgstrikeRate2022] = useState([]);
+  
+  const [p2wicket, p2setWicket] = useState();
+  const [p2wicket2020, p2setWicket2020] = useState();
+  const [p2wicket2021, p2setWicket2021] = useState();
+  const [p2wicket2022, p2setWicket2022] = useState();
+  const [p2bowcount, p2setBowcount] = useState([]);
+  const [p2bowcount2020, p2setBowcount2020] = useState([]);
+  const [p2bowcount2021, p2setBowcount2021] = useState([]);
+  const [p2bowcount2022, p2setBowcount2022] = useState([]);
+  const [p2avgeconomyRate, p2setAvgeconomyRate] = useState([]);
+  const [p2avgeconomyRate2020, p2setAvgeconomyRate2020] = useState([]);
+  const [p2avgeconomyRate2021, p2setAvgeconomyRate2021] = useState([]);
+  const [p2avgeconomyRate2022, p2setAvgeconomyRate2022] = useState([]);
+
   
   const [selectedYear, setSelectedYear] = useState();
   
@@ -76,6 +102,28 @@ export const PlayerComparision = () => {
   let p1economyRate2021 = 0;
   let p1economyRate2022 = 0;
 
+  //////////////////////////////////////////
+
+  let p2runs2020 = 0;
+  let p2runs2021 = 0;
+  let p2runs2022 = 0;
+  let p2batMatchCount2020 = 0;
+  let p2batMatchCount2021 = 0;
+  let p2batMatchCount2022 = 0;
+  let p2strikeRate2020 = 0;
+  let p2strikeRate2021 = 0;
+  let p2strikeRate2022 = 0;
+
+  let p2wic2020 = 0;
+  let p2wic2021 = 0;
+  let p2wic2022 = 0;
+  let p2bowMatchCount2020 = 0;
+  let p2bowMatchCount2021 = 0;
+  let p2bowMatchCount2022 = 0;
+  let p2economyRate2020 = 0;
+  let p2economyRate2021 = 0;
+  let p2economyRate2022 = 0;
+
   const handleSearchResults = (searchResults) => {
     setPlayer1(searchResults[0]);
     tableSearch1(searchResults[0]);
@@ -83,6 +131,7 @@ export const PlayerComparision = () => {
 
   const handleSearchResults1 = (searchResults) => {
     setPlayer2(searchResults[0]);
+    tableSearch2(searchResults[0]);
   };
 
   const tableSearch1 = async (searchResults) => {
@@ -143,6 +192,8 @@ export const PlayerComparision = () => {
       setTotalruns2020(p1runs2020);
       setBatcount2020(p1batMatchCount2020);
 
+      
+
       querySnapshot2.forEach((doc) => {
         const data = doc.data();
         p1runs2021 += data.runs;
@@ -151,6 +202,8 @@ export const PlayerComparision = () => {
       setTotalruns2021(p1runs2021);
       setBatcount2021(p1batMatchCount2021);
 
+      console.log("pl12021bat", batcount2021);
+
       querySnapshot3.forEach((doc) => {
         const data = doc.data();
         p1runs2022 += data.runs;
@@ -158,6 +211,8 @@ export const PlayerComparision = () => {
       });
       setTotalruns2022(p1runs2022);
       setBatcount2022(p1batMatchCount2022);
+
+      console.log("pl12022bat", batcount2022);
 
       querySnapshot1.forEach((doc) => {
         const data = doc.data();
@@ -180,6 +235,8 @@ export const PlayerComparision = () => {
       });
       setAvgstrikeRate2022(p1strikeRate2022);
 
+      console.log("pl12022strike", avgstrikeRate2022);
+
       querySnapshot4.forEach((doc) => {
         const data = doc.data();
         p1wic2020 += data.wickets;
@@ -196,6 +253,8 @@ export const PlayerComparision = () => {
       setWicket2021(p1wic2021);
       setBowcount2021(p1bowMatchCount2021);
 
+      console.log("pl12021bow", bowcount2021);
+
       querySnapshot6.forEach((doc) => {
         const data = doc.data();
         p1wic2022 += data.wickets;
@@ -203,6 +262,8 @@ export const PlayerComparision = () => {
       });
       setWicket2022(p1wic2022);
       setBowcount2022(p1bowMatchCount2022);
+
+      console.log("pl12022bow", bowcount2022);
 
       querySnapshot4.forEach((doc) => {
         const data = doc.data();
@@ -228,6 +289,153 @@ export const PlayerComparision = () => {
 
   };
 
+  //////////////////////////////////////////////////////////
+
+  const tableSearch2 = async (searchResults) => {
+    try {
+      console.log(searchResults.name);
+
+      const db = getFirestore();
+
+      const querySnapshot1 = await getDocs(
+        query(
+          collection(db, "Batting"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2020)
+        )
+      );
+      const querySnapshot2 = await getDocs(
+        query(
+          collection(db, "Batting"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2021)
+        )
+      );
+      const querySnapshot3 = await getDocs(
+        query(
+          collection(db, "Batting"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2022)
+        )
+      );
+      const querySnapshot4 = await getDocs(
+        query(
+          collection(db, "Bowling"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2020)
+        )
+      );
+      const querySnapshot5 = await getDocs(
+        query(
+          collection(db, "Bowling"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2021)
+        )
+      );
+      const querySnapshot6 = await getDocs(
+        query(
+          collection(db, "Bowling"),
+          where("name", "==", searchResults.name),
+          where("year", "==", 2022)
+        )
+      );
+      
+
+      querySnapshot1.forEach((doc) => {
+        const data = doc.data();
+        p2runs2020 += data.runs;
+        p2batMatchCount2020++;
+      });
+      p2setTotalruns2020(p2runs2020);
+      p2setBatcount2020(p2batMatchCount2020);
+
+      querySnapshot2.forEach((doc) => {
+        const data = doc.data();
+        p2runs2021 += data.runs;
+        p2batMatchCount2021++;
+      });
+      p2setTotalruns2021(p2runs2021);
+      p2setBatcount2021(p2batMatchCount2021);
+
+      querySnapshot3.forEach((doc) => {
+        const data = doc.data();
+        p2runs2022 += data.runs;
+        p2batMatchCount2022++;
+      });
+      p2setTotalruns2022(p2runs2022);
+      p2setBatcount2022(p2batMatchCount2022);
+
+      querySnapshot1.forEach((doc) => {
+        const data = doc.data();
+        p2strikeRate2020 += data.strike_rate;
+        //bowMatchCount2022++;
+      });
+      p2setAvgstrikeRate2020(p2strikeRate2020);
+
+      querySnapshot2.forEach((doc) => {
+        const data = doc.data();
+        p2strikeRate2021 += data.strike_rate;
+        //bowMatchCount2022++;
+      });
+      p2setAvgstrikeRate2021(p2strikeRate2021);
+
+      querySnapshot3.forEach((doc) => {
+        const data = doc.data();
+        p2strikeRate2022 += data.strike_rate;
+        //bowMatchCount2022++;
+      });
+      p2setAvgstrikeRate2022(p2strikeRate2022);
+
+      querySnapshot4.forEach((doc) => {
+        const data = doc.data();
+        p2wic2020 += data.wickets;
+        p2bowMatchCount2020++;
+      });
+      p2setWicket2020(p2wic2020);
+      p2setBowcount2020(p2bowMatchCount2020);
+
+      querySnapshot5.forEach((doc) => {
+        const data = doc.data();
+        p2wic2021 += data.wickets;
+        p2bowMatchCount2021++;
+      });
+      p2setWicket2021(p2wic2021);
+      p2setBowcount2021(p2bowMatchCount2021);
+
+      querySnapshot6.forEach((doc) => {
+        const data = doc.data();
+        p2wic2022 += data.wickets;
+        p2bowMatchCount2022++;
+      });
+      p2setWicket2022(p2wic2022);
+      p2setBowcount2022(p2bowMatchCount2022);
+
+      querySnapshot4.forEach((doc) => {
+        const data = doc.data();
+        p2economyRate2020 += data.economy_rate;
+      });
+      p2setAvgeconomyRate2020(p2economyRate2020);
+
+      querySnapshot5.forEach((doc) => {
+        const data = doc.data();
+        p2economyRate2021 += data.economy_rate;
+      });
+      p2setAvgeconomyRate2021(p2economyRate2021);
+
+      querySnapshot6.forEach((doc) => {
+        const data = doc.data();
+        p2economyRate2022 += data.economy_rate;
+      });
+      p2setAvgeconomyRate2022(p2economyRate2022);
+      
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+
+  };
+
+  
+
   useEffect(() => {
     if (selectedYear === 2020) {
       setWicket2020(wicket2020);
@@ -250,6 +458,31 @@ export const PlayerComparision = () => {
       setTotalruns2020(totalruns2022);
       setBowcount2020(batcount2022);
       setAvgstrikeRate2020(avgstrikeRate2022);
+    }
+  }, [selectedYear]);
+
+  useEffect(() => {
+    if (selectedYear === 2020) {
+      p2setWicket2020(p2wicket2020);
+      p2setBowcount2020(p2bowcount2020);
+      p2setAvgeconomyRate2020(p2avgeconomyRate2020);
+      p2setTotalruns2020(p2totalruns2020);
+      p2setBowcount2020(p2batcount2020);
+      p2setAvgstrikeRate2020(p2avgstrikeRate2020);
+    } else if (selectedYear === 2021) {
+      p2setWicket2020(p2wicket2021);
+      p2setBowcount2020(p2bowcount2021);
+      p2setAvgeconomyRate2020(p2avgeconomyRate2021);
+      p2setTotalruns2020(p2totalruns2021);
+      p2setBowcount2020(p2batcount2021);
+      p2setAvgstrikeRate2020(p2avgstrikeRate2021);
+    } else if (selectedYear === 2022) {
+      p2setWicket2020(p2wicket2022);
+      p2setBowcount2020(p2bowcount2022);
+      p2setAvgeconomyRate2020(p2avgeconomyRate2022);
+      p2setTotalruns2020(p2totalruns2022);
+      p2setBowcount2020(p2batcount2022);
+      p2setAvgstrikeRate2020(p2avgstrikeRate2022);
     }
   }, [selectedYear]);
 
@@ -305,7 +538,7 @@ export const PlayerComparision = () => {
                     >
                       <option value="2022">2022</option>
                       <option value="2021">2021</option>
-                      <option value="2020">2020</option>
+                      {/* <option value="2020">2020</option> */}
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                       <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
@@ -397,12 +630,12 @@ export const PlayerComparision = () => {
                 <div className="m-5">
                   <span className="p-2 rounded-lg shadow-2xl">{(avgstrikeRate2020/batcount2020).toFixed(2)}</span>
                 </div>
-                <div className="m-5">
+                {/* <div className="m-5">
                   <span className="p-2 rounded-lg shadow-2xl">-</span>
                 </div>
                 <div className="m-5">
                   <span className="p-2 rounded-lg shadow-2xl">-</span>
-                </div>
+                </div> */}
             </div>
             <div>
             <div className="text-center flex flex-col">
@@ -456,7 +689,7 @@ export const PlayerComparision = () => {
                   STRIKE RATE
                 </span>
               </div>
-              <div className="m-5">
+              {/* <div className="m-5">
                 <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   BATTING RANKING
                 </span>
@@ -465,7 +698,7 @@ export const PlayerComparision = () => {
                 <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   BOWLING RANKING
                 </span>
-              </div>
+              </div> */}
 
               {/* <h3 className="m-5  bg-red-100 rounded-lg shadow-2xl">
                 FULL NAME
@@ -517,23 +750,23 @@ export const PlayerComparision = () => {
                   </span>
                 </div>
                 <div className="m-5">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{p2wicket2020}</span>
+                </div>
+                <div className="m-5">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{(p2avgeconomyRate2020/p2bowcount2020).toFixed(2)}</span>
+                </div>
+                <div className="m-5">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{p2totalruns2020}</span>
+                </div>
+                <div className="m-5">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{(p2avgstrikeRate2020/p2batcount2020).toFixed(2)}</span>
+                </div>
+                {/* <div className="m-5">
                   <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">23.96</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">1270</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">133.68</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">15</span>
-                </div>
-                <div className="m-5">
                   <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
-                </div>
+                </div> */}
                 </div>
               </div>
             )}
