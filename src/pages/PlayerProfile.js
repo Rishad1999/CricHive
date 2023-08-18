@@ -282,10 +282,10 @@ export const PlayerProfile = () => {
                 <span>{results.playing_role}</span>
               </p>
             </div>
-            <div class="w-60 absolute bottom-0 right-10 ...">
-              {/* <img src={PlayerImg} alt="Logo" /> */}
-              <img src={results.image} alt="Logo" />
-            </div>
+            <div class="w-80 h-auto absolute bottom-0 right-10 ...">
+  {/* <img src={PlayerImg} alt="Logo" /> */}
+  <img src={results.image} alt="Logo" style={{ width: '100%', height: 'auto' }} />
+</div>
           </div>
 
           <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg mx-20 mt-5 shadow-xl">
