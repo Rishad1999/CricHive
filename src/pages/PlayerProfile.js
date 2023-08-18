@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import "./playerProfile.css";
 import PlayerImg from "../assets/dhoni.png";
 import { TableStat, Footer, SearchPlayer } from "../components";
 import "tailwindcss/tailwind.css";
@@ -579,10 +579,11 @@ export const PlayerProfile = () => {
           swipeable
         >
           {photos.map((photo, index) => (
-            <div key={index}>
-              <img src={photo} alt={`Slide ${index + 1}`} />
+            <div className="photos" key={index}>
+                <img src={photo} alt={`Slide ${index + 1}`} style={{ border: '2px solid #ccc', borderRadius: '10px' }} />
             </div>
-          ))}
+        ))}
+
         </Carousel>
 
         <div className="absolute top-0 left-0 right-0 flex justify-center mt-2">
@@ -597,6 +598,7 @@ export const PlayerProfile = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
