@@ -38,8 +38,10 @@ export const CountryWes = () => {
     const countryPlayer = async () => {
       const db = getFirestore();
       const querySnapshot = await getDocs(
-        query(collection(db, "countryplayers"), 
-        where("country", "==", "westindies"))
+        query(
+          collection(db, "countryplayers"),
+          where("country", "==", "westindies")
+        )
       );
 
       querySnapshot.forEach((doc) => {
@@ -58,10 +60,12 @@ export const CountryWes = () => {
       const db = getFirestore();
 
       const querySnapshot1 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2020),
-        where("win_and_loss", "==", "Won"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2020),
+          where("win_and_loss", "==", "Won")
+        )
       );
       querySnapshot1.forEach((doc) => {
         number_of_wins2020++;
@@ -69,10 +73,12 @@ export const CountryWes = () => {
       setNumwin2020(number_of_wins2020);
 
       const querySnapshot2 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2021),
-        where("win_and_loss", "==", "Won"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2021),
+          where("win_and_loss", "==", "Won")
+        )
       );
       querySnapshot2.forEach((doc) => {
         number_of_wins2021++;
@@ -80,10 +86,12 @@ export const CountryWes = () => {
       setNumwin2021(number_of_wins2021);
 
       const querySnapshot3 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2022),
-        where("win_and_loss", "==", "Won"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2022),
+          where("win_and_loss", "==", "Won")
+        )
       );
       querySnapshot3.forEach((doc) => {
         number_of_wins2022++;
@@ -91,10 +99,12 @@ export const CountryWes = () => {
       setNumwin2022(number_of_wins2022);
 
       const querySnapshot4 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2020),
-        where("win_and_loss", "==", "Loss"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2020),
+          where("win_and_loss", "==", "Loss")
+        )
       );
       querySnapshot4.forEach((doc) => {
         number_of_losses2020++;
@@ -102,10 +112,12 @@ export const CountryWes = () => {
       setNumloss2020(number_of_losses2020);
 
       const querySnapshot5 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2021),
-        where("win_and_loss", "==", "Loss"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2021),
+          where("win_and_loss", "==", "Loss")
+        )
       );
       querySnapshot5.forEach((doc) => {
         number_of_losses2021++;
@@ -113,21 +125,21 @@ export const CountryWes = () => {
       setNumloss2021(number_of_losses2021);
 
       const querySnapshot6 = await getDocs(
-        query(collection(db, "countrymatch"), 
-        where("country", "==", "West Indies"),
-        where("year", "==", 2022),
-        where("win_and_loss", "==", "Loss"))
+        query(
+          collection(db, "countrymatch"),
+          where("country", "==", "West Indies"),
+          where("year", "==", 2022),
+          where("win_and_loss", "==", "Loss")
+        )
       );
       querySnapshot6.forEach((doc) => {
         number_of_losses2022++;
       });
       setNumloss2022(number_of_losses2022);
-      
     };
     matchWin();
   }, []);
 
-  
   return (
     <>
       <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-yellow-800 to-yellow-300 flex flex-col justify-center items-center">
@@ -240,10 +252,12 @@ export const CountryWes = () => {
               </th>
               <td className="px-6 py-4">{numwin2020}</td>
               <td className="px-6 py-4">{numloss2020}</td>
-              <td className="px-6 py-4">{(((numwin2020)*100)/(numwin2020 + numloss2020)).toFixed(2)}%</td>
+              <td className="px-6 py-4">
+                {((numwin2020 * 100) / (numwin2020 + numloss2020)).toFixed(2)}%
+              </td>
               <td className="px-6 py-4 text-right">2</td>
-              <td className="px-6 py-4 text-right">Virat Kohli</td>
-              <td className="px-6 py-4 text-right">Jasprit Bumrah</td>
+              <td className="px-6 py-4 text-right">L M P Simmons</td>
+              <td className="px-6 py-4 text-right">Sheldon Cottrell</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
@@ -262,10 +276,12 @@ export const CountryWes = () => {
               </th>
               <td className="px-6 py-4">{numwin2021}</td>
               <td className="px-6 py-4">{numloss2021}</td>
-              <td className="px-6 py-4">{(((numwin2021)*100)/(numwin2021 + numloss2021)).toFixed(2)}%</td>
+              <td className="px-6 py-4">
+                {((numwin2021 * 100) / (numwin2021 + numloss2021)).toFixed(2)}%
+              </td>
               <td className="px-6 py-4 text-right">1</td>
-              <td className="px-6 py-4 text-right">Rohit sharma</td>
-              <td className="px-6 py-4 text-right">Buvenehswar kumar</td>
+              <td className="px-6 py-4 text-right">Nicholas Pooran</td>
+              <td className="px-6 py-4 text-right">J O Holder</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
@@ -284,10 +300,12 @@ export const CountryWes = () => {
               </th>
               <td className="px-6 py-4">{numwin2022}</td>
               <td className="px-6 py-4">{numloss2022}</td>
-              <td className="px-6 py-4">{(((numwin2022)*100)/(numwin2022 + numloss2022)).toFixed(2)}%</td>
+              <td className="px-6 py-4">
+                {((numwin2022 * 100) / (numwin2022 + numloss2022)).toFixed(2)}%
+              </td>
               <td className="px-6 py-4 text-right">3</td>
-              <td className="px-6 py-4 text-right">Suryakumar yadav</td>
-              <td className="px-6 py-4 text-right">Yuzvendra chahal</td>
+              <td className="px-6 py-4 text-right">Nicholas Pooran</td>
+              <td className="px-6 py-4 text-right">J O Holder</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
