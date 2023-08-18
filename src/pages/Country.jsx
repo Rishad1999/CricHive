@@ -24,53 +24,6 @@ export const Country = () => {
 
   return (
     <>
-<<<<<<< Updated upstream
-      <div className="bg-cover bg-center min-h-screen bg-white-800">
-
-        <div className="Playerbar">
-          <div className="PlayerbarProfile">
-            <div className="PlayerbarItem">
-            
-
-              <span className="PlayerbarTitle">MATCHES</span>
-
-              <div className="dropdown">
-                <span>PREVIOUS YEARS MATCHES :</span>
-                <select
-                  className="options"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
-                >
-                  <option value="option1">2019</option>
-                  <option value="option2">2020</option>
-                  <option value="option3">2021</option>
-                </select>
-              </div>
-              <div className="grid-container">
-                <Link to="./india">
-                  <div className="grid-item">
-                    <img src={flag_IND} alt="" className="countryImg" />
-                    <span className="Title">INDIA</span>
-                  </div>
-                </Link>
-                {/* <div className="grid-item">
-              <img src={flag_IND} alt="" className="countryImg" />
-              <span className="Title">INDIA</span>
-            </div> */}
-                <Link to="./srilanka">
-                  <div className="grid-item">
-                    <img src={flag_SL}  alt="" className="countryImg" />
-                    <span className="Title">SRI LANKA</span>
-                  </div>
-                </Link>
-                
-                <Link to="./aus">
-                  <div className="grid-item">
-                    <img src={flag_ASSIE} alt="" className="countryImg" />
-                    <span className="Title">AUSTRALIA</span>
-                  </div>
-                </Link>
-=======
       <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
         <div className="col-span-3">
           <div className="w-560 h-800">
@@ -90,7 +43,6 @@ export const Country = () => {
                       <span className="Title">SRI LANKA</span>
                     </div>
                   </Link>
->>>>>>> Stashed changes
 
                   <Link to="./aus">
                     <div className="grid-item">
