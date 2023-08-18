@@ -3,7 +3,7 @@ import "./PlayerComparision.css";
 import { SearchPlayer, Footer } from "../components";
 import Player1Img from "../assets/8.png";
 import Player2Img from "../assets/kholiProf.png";
-import vsImg from "../assets/10.jpg";
+import vsImg from "../assets/homepageAssets/15.png";
 import fight from "../assets/fight.jpg";
 
 export const PlayerComparision = () => {
@@ -50,7 +50,7 @@ export const PlayerComparision = () => {
       {player1 && (
         <div className="mx-10 p-6">
           <div className="grid grid-cols-3 gap-4">
-            <div className="bg-red-100 rounded-xl shadow-lg m-5 mt-2">
+            <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2">
               <div className="PlayerbarLeft">
                 <div className="PlayerbarItem">
                   <span className="PlayerbarTitle">{player1.name}</span>
@@ -82,7 +82,8 @@ export const PlayerComparision = () => {
 
                   <div className="mt-8">
                     <div className="text-center m-5 mt-6">
-                      <span className="text-2xl font-medium bg-emerald-400 p-3 rounded-lg">
+                    
+                      <span className="text-2xl font-medium bg-emerald-100 p-3 rounded-lg">
                         PLAYER COMPARISON
                       </span>
                       <img
@@ -121,113 +122,113 @@ export const PlayerComparision = () => {
 
             <div className="text-right flex flex-col">
               <div className="m-5">
-                <span className="p-2 rounded-lg shadow-2xl">
+                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   {player1.name}
                 </span>
               </div>
               <div className="m-5">
-                  <span className=" p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player1.born}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player1.age}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player1.batting_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player1.bowling_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player1.playing_role}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">-</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">23.96</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">23.96</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">1270</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">1270</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">133.68</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">133.68</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">15</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">15</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">-</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
             </div>
             <div>
             <div className="text-center flex flex-col">
               <div className="m-5">
-                <span className=" p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className=" p-2  bg-green-100 rounded-lg shadow-xl">
                   FULL NAME
                 </span>
               </div>
               <div className="m-5">
-                <span className=" p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className=" p-2  bg-green-100 rounded-lg shadow-xl">
                   BORN
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   AGE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   BATTING STYLE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   BOWLING STYLE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   PLAYING ROLE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   WICKETS TAKEN
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   ECONOMY RATE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
                   RUN SCORED
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   STRIKE RATE
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   BATTING RANKING
                 </span>
               </div>
               <div className="m-5">
-                <span className="p-2  bg-emerald-400 rounded-lg shadow-xl">
+                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   BOWLING RANKING
                 </span>
               </div>
@@ -252,52 +253,52 @@ export const PlayerComparision = () => {
               <div>
                 <div className="text-left flex flex-col">
                   <div className="m-5">
-                    <span className="p-2 rounded-lg shadow-2xl">
+                    <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                       {player2.name}
                     </span>
                   </div>
                   <div className="m-5">
-                  <span className=" p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player2.born}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player2.age}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player2.batting_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player2.bowling_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                     {player2.playing_role}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">-</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">23.96</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">23.96</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">1270</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">1270</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">133.68</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">133.68</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">15</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">15</span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">-</span>
+                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
                 </div>
               </div>
