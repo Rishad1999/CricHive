@@ -29,23 +29,9 @@ export const Country = () => {
         <div className="Playerbar">
           <div className="PlayerbarProfile">
             <div className="PlayerbarItem">
-            
-
-              <span className="PlayerbarTitle">MATCHES</span>
-
-              <div className="dropdown">
-                <span>PREVIOUS YEARS MATCHES :</span>
-                <select
-                  className="options"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
-                >
-                  <option value="option1">2019</option>
-                  <option value="option2">2020</option>
-                  <option value="option3">2021</option>
-                </select>
-              </div>
+              <span className="PlayerbarTitle">MATCHES</span>      
               <div className="grid-container">
+                
                 <Link to="./india">
                   <div className="grid-item">
                     <img src={flag_IND} alt="" className="countryImg" />
