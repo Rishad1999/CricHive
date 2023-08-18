@@ -1,5 +1,5 @@
 import React from "react";
-import FlagImg from "../../assets/12.png";
+import FlagImg from "../../assets/countriesAssets/16.jpg";
 import { Footer } from "../../components";
 import "tailwindcss/tailwind.css";
 
@@ -130,7 +130,7 @@ export const CountrySa = () => {
   
   return (
     <>
-      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center">
+      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-tr from-black to-red-600 via-blue-600 flex flex-col justify-center items-center">
         <img
           src={FlagImg}
           alt="Player"

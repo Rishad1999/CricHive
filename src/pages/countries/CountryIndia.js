@@ -130,7 +130,7 @@ export const CountryIndia = () => {
   
   return (
     <>
-      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center">
+      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-orange-500 via-white to-green-500 flex flex-col justify-center items-center">
         <img
           src={FlagImg}
           alt="Player"
