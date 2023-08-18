@@ -3,20 +3,25 @@ import mun from "../assets/mun.jpg";
 import sadee from "../assets/sadee.png";
 import rish from "../assets/rish.png";
 import about from "../assets/about.png";
-import "tailwindcss/tailwind.css";
+
+import fight from "../assets/fight.jpg";
 
 import {Footer } from "../components";
 
 export const AboutUs = () => {
   return (
     <>
-      <header className="bg-white shadow-md">
+      {/* <header className="bg-white shadow-md">
         <div className="container mx-auto py-4 px-6">
           <h1 className="text-gray-800 font-bold text-3xl">About Us</h1>
         </div>
-      </header>
+      </header> */}
 
-      <main className="container mx-auto mt-8 px-6">
+      <div className="bg-white min-h-screen">
+      <div className="container mx-auto mt-8 px-6">
+        <div className="bg-white rounded-lg shadow-xl p-8">
+          {/* code here */}
+          <main className="container mx-auto mt-8 px-6">
         <div className="flex flex-col md:flex-row">
           <div className="mx-5 md:w-1/2">
             <img
@@ -101,6 +106,12 @@ export const AboutUs = () => {
           </div>
         </div>
       </main>
+        </div>
+      </div>
+    </div>
+      
+
+      
 
       <Footer />
     </>
