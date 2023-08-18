@@ -520,11 +520,13 @@ export const PlayerComparision = () => {
       {player1 && (
         <div className="mx-10 p-6">
           <div className="grid grid-cols-3 gap-4">
-            <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2">
+            <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2 h-16">
               <div className="PlayerbarLeft">
                 <div className="PlayerbarItem">
                   <span className="PlayerbarTitle">{player1.name}</span>
-                  <img className="" src={resultsP1.image} alt="player1 image" />
+                  <img className="w-112 h-96 mt-8 rounded-lg" 
+                  src={resultsP1.image} 
+                  alt="player1 image" />
                 </div>
               </div>
             </div>
@@ -568,12 +570,12 @@ export const PlayerComparision = () => {
             </div>
 
             {player2 ? (
-              <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2">
+              <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2 h-16">
                 <div className="PlayerbarRight">
                   <div className="PlayerbarItem">
                     <span className="PlayerbarTitle">{player2.name}</span>
                     <img
-                      className="w-full h-auto"
+                      className="w-112 h-96 mt-8 rounded-lg"
                       src={resultsP2.image}
                       alt="player2 image"
                     />
