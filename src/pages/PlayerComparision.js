@@ -20,7 +20,8 @@ export const PlayerComparision = () => {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
 
-  const [results, setResults] = useState([]);
+  const [resultsP1, setResultsP1] = useState([]);
+  const [resultsP2, setResultsP2] = useState([]);
 
   const [totalruns, setTotalruns] = useState([]);
   const [totalruns2020, setTotalruns2020] = useState([]);
@@ -137,7 +138,8 @@ export const PlayerComparision = () => {
   const tableSearch1 = async (searchResults) => {
     try {
       console.log(searchResults.name);
-
+      setResultsP1(searchResults);
+      console.log(resultsP1.image);
       const db = getFirestore();
 
       const querySnapshot1 = await getDocs(
@@ -294,6 +296,7 @@ export const PlayerComparision = () => {
   const tableSearch2 = async (searchResults) => {
     try {
       console.log(searchResults.name);
+      setResultsP2(searchResults);
 
       const db = getFirestore();
 
@@ -521,7 +524,7 @@ export const PlayerComparision = () => {
               <div className="PlayerbarLeft">
                 <div className="PlayerbarItem">
                   <span className="PlayerbarTitle">{player1.name}</span>
-                  <img className="" src={Player1Img} alt="player1 image" />
+                  <img className="" src={resultsP1.image} alt="player1 image" />
                 </div>
               </div>
             </div>
@@ -571,7 +574,7 @@ export const PlayerComparision = () => {
                     <span className="PlayerbarTitle">{player2.name}</span>
                     <img
                       className="w-full h-auto"
-                      src={Player2Img}
+                      src={resultsP2.image}
                       alt="player2 image"
                     />
                   </div>
