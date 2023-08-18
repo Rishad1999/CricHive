@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PlayerImg from "../assets/dhoni.png";
 import { TableStat, Footer, SearchPlayer } from "../components";
 import "tailwindcss/tailwind.css";
-
+import "./playerProfile.css";
 import photo1 from "../assets/photo1.jpg";
 import photo2 from "../assets/photo2.jpg";
 import photo3 from "../assets/photo3.jpg";
@@ -512,10 +512,11 @@ export const PlayerProfile = () => {
           swipeable
         >
           {photos.map((photo, index) => (
-            <div key={index}>
-              <img src={photo} alt={`Slide ${index + 1}`} />
+            <div className="photos" key={index}>
+                <img src={photo} alt={`Slide ${index + 1}`} style={{ border: '2px solid #ccc', borderRadius: '10px' }} />
             </div>
-          ))}
+        ))}
+
         </Carousel>
 
         <div className="absolute top-0 left-0 right-0 flex justify-center mt-2">
