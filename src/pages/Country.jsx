@@ -24,12 +24,12 @@ export const Country = () => {
 
   return (
     <>
-      <div className="bg-cover bg-center min-h-screen bg-white-800">
+      <div className="bg-white-800">
 
-        <div className="Playerbar">
-          <div className="PlayerbarProfile">
+        <div className="w-560 h-800">
+          <div className="bg-white rounded-lg mt-10 ml-10 mr-10">
             <div className="PlayerbarItem">
-              <span className="PlayerbarTitle">MATCHES</span>      
+                  
               <div className="grid-container">
                 
                 <Link to="./india">

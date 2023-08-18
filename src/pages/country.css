@@ -1,28 +1,4 @@
-  
-  .Playerbar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  
-    
-  }
-  
-  .PlayerbarProfile {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 90%;
-    max-width: 3500px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+/*
   .PlayerbarItem {
     display: flex;
     flex-direction: column;
@@ -30,7 +6,7 @@
     align-items: center;
     width: 100%;
   }
-  
+   */
   .PlayerbarTitle {
     margin-top: 20px;
     font-size: 24px;
@@ -145,4 +121,4 @@
   .Title{
     font-weight: bold;
   }
-  
+ 
