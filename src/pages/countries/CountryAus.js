@@ -242,8 +242,8 @@ export const CountryAus = () => {
               <td className="px-6 py-4">{numloss2020}</td>
               <td className="px-6 py-4">{(((numwin2020)*100)/(numwin2020 + numloss2020)).toFixed(2)}%</td>
               <td className="px-6 py-4 text-right">2</td>
-              <td className="px-6 py-4 text-right">Virat Kohli</td>
-              <td className="px-6 py-4 text-right">Jasprit Bumrah</td>
+              <td className="px-6 py-4 text-right">M S Wade</td>
+              <td className="px-6 py-4 text-right">A C Agar</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
@@ -264,8 +264,8 @@ export const CountryAus = () => {
               <td className="px-6 py-4">{numloss2021}</td>
               <td className="px-6 py-4">{(((numwin2021)*100)/(numwin2021 + numloss2021)).toFixed(2)}%</td>
               <td className="px-6 py-4 text-right">1</td>
-              <td className="px-6 py-4 text-right">Rohit sharma</td>
-              <td className="px-6 py-4 text-right">Buvenehswar kumar</td>
+              <td className="px-6 py-4 text-right">MR Marsh</td>
+              <td className="px-6 py-4 text-right">A Zampa</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
@@ -286,8 +286,8 @@ export const CountryAus = () => {
               <td className="px-6 py-4">{numloss2022}</td>
               <td className="px-6 py-4">{(((numwin2022)*100)/(numwin2022 + numloss2022)).toFixed(2)}%</td>
               <td className="px-6 py-4 text-right">3</td>
-              <td className="px-6 py-4 text-right">Suryakumar yadav</td>
-              <td className="px-6 py-4 text-right">Yuzvendra chahal</td>
+              <td className="px-6 py-4 text-right">AJ Finch</td>
+              <td className="px-6 py-4 text-right">J R Hazlewood</td>
               {/* <td className="px-6 py-4 text-right">
             <a
               href="#"
