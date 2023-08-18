@@ -6,20 +6,7 @@
     animation: player-img 1s ease-in-out infinite;
   }
   
-  @keyframes player-comparison {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-10px);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+
   
  
   
@@ -43,7 +30,7 @@
   }
 
   .page-wrapper {
-    background-image: url("../assets/new.png");
+    background-image: rgba(17, 20, 20, 0.956);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -66,7 +53,7 @@
   .animated-image {
     
     width: 1600px; /* Set the desired width */
-    height: 650px;
+    height: 600px;
     border-radius: 10px;
     
   }
