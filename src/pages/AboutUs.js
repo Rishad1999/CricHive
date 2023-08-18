@@ -1,5 +1,5 @@
 import thisan from "../assets/thisan.png";
-import mun from "../assets/mun.png";
+import mun from "../assets/mun.jpg";
 import sadee from "../assets/sadee.png";
 import rish from "../assets/rish.png";
 import about from "../assets/about.png";
