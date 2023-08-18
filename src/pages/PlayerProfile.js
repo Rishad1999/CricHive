@@ -513,7 +513,7 @@ export const PlayerProfile = () => {
         >
           {photos.map((photo, index) => (
             <div className="photos" key={index}>
-                <img src={photo} alt={`Slide ${index + 1}`} style={{ border: '2px solid #ccc', borderRadius: '10px' }} />
+                <img src={photo} alt={`Slide ${index + 1}`} style={{ border: '2px solid #ccc', borderRadius: '15px' }} />
             </div>
         ))}
 
@@ -531,6 +531,7 @@ export const PlayerProfile = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
