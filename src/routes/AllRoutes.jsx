@@ -10,6 +10,14 @@ import {
 
 import {
   CountryIndia,
+  CountrySa,
+  CountryWes,
+  CountryPak,
+  CountryNewzealand,
+  CountryEng,
+  CountryAus,
+  CountrySl,
+  CountryAfg,  
 } from "../pages/countries";
 
 import { NavBar } from "../components";
@@ -25,6 +33,14 @@ export const AllRoutes = () => {
         <Route path="playerProfile" element={<PlayerProfile />} />
         <Route path="country" element={<Country />} />
         <Route path="country/india" element={<CountryIndia />} />
+        <Route path="country/Sa" element={<CountrySa />} />
+        <Route path="country/west" element={<CountryWes />} />
+        <Route path="country/pak" element={<CountryPak />} />
+        <Route path="country/Newzealand" element={<CountryNewzealand />} />
+        <Route path="country/Eng" element={<CountryEng  />} />
+        <Route path="country/Aus" element={<CountryAus  />} />
+        <Route path="country/Afg" element={<CountryAfg />} />
+        <Route path="country/srilanka" element={<CountrySl />} />
         <Route path="aboutUs" element={<AboutUs />} />
         <Route path="buyNow" element={<BuyNow />} />
       </Routes>

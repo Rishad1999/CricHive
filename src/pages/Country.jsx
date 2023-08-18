@@ -24,7 +24,7 @@ export const Country = () => {
 
   return (
     <>
-      <div className="bg-cover bg-center min-h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="bg-cover bg-center min-h-screen bg-white-800">
 
         <div className="Playerbar">
           <div className="PlayerbarProfile">
@@ -56,38 +56,63 @@ export const Country = () => {
               <img src={flag_IND} alt="" className="countryImg" />
               <span className="Title">INDIA</span>
             </div> */}
-                <div className="grid-item">
-                  <img src={flag_SL} alt="" className="countryImg" />
-                  <span className="Title">SRI LANKA</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_ASSIE} alt="" className="countryImg" />
-                  <span className="Title">AUSTRALIA</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_NEWZ} alt="" className="countryImg" />
-                  <span className="Title">NEW ZELAND</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_SA} alt="" className="countryImg" />
-                  <span className="Title">SOUTH AFRICA</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_WI} alt="" className="countryImg" />
-                  <span className="Title">WEST INDIES</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_AFG} alt="" className="countryImg" />
-                  <span className="Title">AFGANISTAN</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_ENG} alt="" className="countryImg" />
-                  <span className="Title">ENGLAND</span>
-                </div>
-                <div className="grid-item">
-                  <img src={flag_BAN} alt="" className="countryImg" />
-                  <span className="Title">PAKISTAN</span>
-                </div>
+                <Link to="./srilanka">
+                  <div className="grid-item">
+                    <img src={flag_SL}  alt="" className="countryImg" />
+                    <span className="Title">SRI LANKA</span>
+                  </div>
+                </Link>
+                
+                <Link to="./aus">
+                  <div className="grid-item">
+                    <img src={flag_ASSIE} alt="" className="countryImg" />
+                    <span className="Title">AUSTRALIA</span>
+                  </div>
+                </Link>
+
+                <Link to="./newzealand">
+                  <div className="grid-item">
+                    <img src={flag_NEWZ} alt="" className="countryImg" />
+                    <span className="Title">NEW ZELAND</span>
+                  </div>
+                </Link>
+
+                <Link to="./sa">
+                  <div className="grid-item">
+                    <img src={flag_SA} alt="" className="countryImg" />
+                    <span className="Title">SOUTH AFRICA</span>
+                  </div>
+                </Link>
+              
+                <Link to="./west">
+                  <div className="grid-item">
+                    <img src={flag_WI} alt="" className="countryImg" />
+                    <span className="Title">WEST INDIES</span>
+                  </div>
+                </Link>            
+
+                <Link to="./afg">
+                  <div className="grid-item">
+                    <img src={flag_AFG} alt="" className="countryImg" />
+                    <span className="Title">AFGANISTAN</span>
+                  </div>
+                </Link>
+
+                <Link to="./eng">
+                  <div className="grid-item">
+                    <img src={flag_ENG} alt="" className="countryImg" />
+                    <span className="Title">ENGLAND</span>
+                  </div>
+                </Link>
+
+                <Link to="./pak">
+                  <div className="grid-item">
+                    <img src={flag_BAN} alt="" className="countryImg" />
+                    <span className="Title">PAKISTAN</span>
+                  </div>
+                </Link>
+
+
                 <div className="grid-item"></div>
                 <div className="grid-item"></div>
                 <div className="grid-item"></div>

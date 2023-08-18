@@ -1,5 +1,5 @@
 import React from "react";
-import FlagImg from "../../assets/12.png";
+import FlagImg from "../../assets/countriesAssets/13.jpg";
 import { Footer } from "../../components";
 import "tailwindcss/tailwind.css";
 
@@ -14,10 +14,10 @@ import {
 
 // shadow-2xl mx-auto mt-5 rounded-lg h-auto w-90 lg:w-100 bg-gradient-to-r from-amber-500 to-green-500 flex flex-col justify-center items-center
 
-export const CountryIndia = () => {
+export const CountryNewzealand = () => {
   const [player, setPlayer] = useState([]);
   //const playerRef = collection(db, "countryplayers");
-  //let india = [];
+  //let Newzeeland = [];
   const [numwin2020, setNumwin2020] = useState([]);
   const [numwin2021, setNumwin2021] = useState([]);
   const [numwin2022, setNumwin2022] = useState([]);
@@ -39,7 +39,7 @@ export const CountryIndia = () => {
       const db = getFirestore();
       const querySnapshot = await getDocs(
         query(collection(db, "countryplayers"), 
-        where("country", "==", "India"))
+        where("country", "==", "Newzeeland"))
       );
 
       querySnapshot.forEach((doc) => {
@@ -59,7 +59,7 @@ export const CountryIndia = () => {
 
       const querySnapshot1 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2020),
         where("win_and_loss", "==", "Won"))
       );
@@ -70,7 +70,7 @@ export const CountryIndia = () => {
 
       const querySnapshot2 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2021),
         where("win_and_loss", "==", "Won"))
       );
@@ -81,7 +81,7 @@ export const CountryIndia = () => {
 
       const querySnapshot3 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2022),
         where("win_and_loss", "==", "Won"))
       );
@@ -92,7 +92,7 @@ export const CountryIndia = () => {
 
       const querySnapshot4 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2020),
         where("win_and_loss", "==", "Loss"))
       );
@@ -103,7 +103,7 @@ export const CountryIndia = () => {
 
       const querySnapshot5 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2021),
         where("win_and_loss", "==", "Loss"))
       );
@@ -114,7 +114,7 @@ export const CountryIndia = () => {
 
       const querySnapshot6 = await getDocs(
         query(collection(db, "countrymatch"), 
-        where("country", "==", "India"),
+        where("country", "==", "New Zealand"),
         where("year", "==", 2022),
         where("win_and_loss", "==", "Loss"))
       );
@@ -130,7 +130,7 @@ export const CountryIndia = () => {
   
   return (
     <>
-      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-orange-500 via-white to-green-500 flex flex-col justify-center items-center">
+      <div class="shadow-xl rounded-lg mx-20 mt-5 mb-5 bg-gradient-to-r from-blue-500 to-blue-900 flex flex-col justify-center items-center">
         <img
           src={FlagImg}
           alt="Player"
@@ -138,7 +138,7 @@ export const CountryIndia = () => {
         />
         <div class="mt-5 text-center">
           <h1 class="text-black-500 text-3xl lg:text-6xl font-bold mb-6">
-            INDIA
+            NEW ZEALAND
           </h1>
         </div>
       </div>
