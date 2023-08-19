@@ -1,16 +1,23 @@
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./NavBar.css";
 
 import logoIcon from "../assets/homepageAssets/logo_icon.png";
 
 export const NavBar = () => {
-  const user = true;
+  // Get the current location
+  const location = useLocation();
+  
+  // Determine if the current location matches a specific path
+  const isPathActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <>
       <header>
         <nav className="bg-gray-800 border-gray-200 px-0 lg:px-0 py-2.5 mx-0 lg:mx-0">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <Link to="https://cricaiv1.web.app/" className="flex items-center">
+            <NavLink to="https://cricaiv1.web.app/" className="flex items-center">
               <img
                 src={logoIcon}
                 className="mr-3 h-6 sm:h-9"
@@ -19,14 +26,16 @@ export const NavBar = () => {
               <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
                 cricAI
               </span>
-            </Link>
+            </NavLink>
             <div className="flex items-center lg:order-2">
-              <Link
+              <NavLink
                 to="./buyNow"
-                className="text-white bg-primary-700 hover:bg-primary-100 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                  isPathActive("/buyNow") ? "active-link" : ""
+                }`}
               >
                 Buy Now
-              </Link>
+              </NavLink>
               <button
                 data-collapse-toggle="mobile-menu-2"
                 type="button"
@@ -67,45 +76,55 @@ export const NavBar = () => {
             >
               <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
-                  <Link
-                    to="./"
-                    className="text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000"
-                    aria-current="page"
-                  >
-                    Home
-                  </Link>
+                <NavLink
+                to="./"
+                className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                  isPathActive("/") ? "active-link " : "" // Add this
+                }`}
+                aria-current="page"
+              >
+                Home
+              </NavLink>
                 </li>
                 <li>
-                  <Link
+                <NavLink
                     to="./playerProfile"
-                    className="text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000"
+                    className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                      isPathActive("/playerProfile") ? "active-link" : ""
+                    }`}
                   >
                     Player
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="./playerComparision"
-                    className="text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000"
+                    className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                      isPathActive("/playerComparision") ? "active-link" : ""
+                    }`}
                   >
                     Compare
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="./country"
-                    className="text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000"
+                    className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                      isPathActive("/country") ? "active-link" : ""
+                    }`}
                   >
                     Countries
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="./aboutUs"
-                    className="text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000"
+                    className={`text-white bg-gray-800 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-6000 ${
+                      isPathActive("/aboutUs") ? "active-link" : ""
+                    }`}
                   >
                     About Us
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

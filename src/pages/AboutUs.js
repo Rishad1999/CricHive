@@ -20,7 +20,6 @@ export const AboutUs = () => {
       <div className="bg-white min-h-screen">
       <div className="container mx-auto mt-8 px-6">
         <div className="bg-white rounded-lg shadow-xl p-8">
-          {/* code here */}
           <main className="container mx-auto mt-8 px-6">
         <div className="flex flex-col md:flex-row">
           <div className="mx-5 md:w-1/2">
@@ -63,7 +62,7 @@ export const AboutUs = () => {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          <h2 className="flex justify-center items-center text-2xl font-bold text-gray-800 mb-2 mb-8">
             Meet Our Team
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
