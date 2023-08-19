@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import "./playerProfile.css";
+
 import PlayerImg from "../assets/dhoni.png";
 import { TableStat, Footer, SearchPlayer } from "../components";
 import "tailwindcss/tailwind.css";
@@ -24,6 +26,8 @@ import {
   query,
   where,
   getDocs,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 
 export const PlayerProfile = () => {
@@ -40,6 +44,8 @@ export const PlayerProfile = () => {
   const [avgstrikeRate2020, setAvgstrikeRate2020] = useState([]);
   const [avgstrikeRate2021, setAvgstrikeRate2021] = useState([]);
   const [avgstrikeRate2022, setAvgstrikeRate2022] = useState([]);
+  const [lasttenmatch, setLasttenmatch] = useState([]);
+  const [lasttenavgstrikeRate, setLasttenavgstrikeRate] = useState([]);
 
   // const [count, setCount] = useState();
   const [wicket2020, setWicket2020] = useState();
@@ -51,6 +57,8 @@ export const PlayerProfile = () => {
   const [avgeconomyRate2020, setAvgeconomyRate2020] = useState([]);
   const [avgeconomyRate2021, setAvgeconomyRate2021] = useState([]);
   const [avgeconomyRate2022, setAvgeconomyRate2022] = useState([]);
+  const [lasttenmatchwic, setLasttenmatchwic] = useState([]);
+  const [lasttenavgeconomyRate, setLasttenavgeconomyRate] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -94,6 +102,8 @@ export const PlayerProfile = () => {
   let strikeRate2020 = 0;
   let strikeRate2021 = 0;
   let strikeRate2022 = 0;
+  let lastTen = 0;
+  let lastTenstrikeRate = 0;
 
   let wic2020 = 0;
   let wic2021 = 0;
@@ -104,6 +114,8 @@ export const PlayerProfile = () => {
   let economyRate2020 = 0;
   let economyRate2021 = 0;
   let economyRate2022 = 0;
+  let lastTenWicket = 0;
+  let lastTeneconomyRate = 0;
 
   var count = 0;
   let wic = 0;
@@ -246,6 +258,51 @@ export const PlayerProfile = () => {
       });
       setAvgeconomyRate2022(economyRate2022);
 
+      const querySnapshot7 = await getDocs(
+        query(
+          collection(db, "Batting"),
+          where("name", "==", searchResults[0].name),
+          orderBy("match_no", "desc"),
+          limit(10)
+        )
+      );
+      querySnapshot7.forEach((doc) => {
+        const data = doc.data();
+        lastTen += data.runs;
+        //console.log("data", data);
+      });
+      setLasttenmatch(lastTen);
+      console.log("data", lasttenmatch);
+
+      querySnapshot7.forEach((doc) => {
+        const data = doc.data();
+        lastTenstrikeRate += data.strike_rate;
+        //console.log("data", data);
+      });
+      setLasttenavgstrikeRate(lastTenstrikeRate);
+
+      const querySnapshot8 = await getDocs(
+        query(
+          collection(db, "Bowling"),
+          where("name", "==", searchResults[0].name),
+          orderBy("match_no", "desc"),
+          limit(10)
+        )
+      );
+      querySnapshot8.forEach((doc) => {
+        const data = doc.data();
+        lastTenWicket += data.wickets;
+        //console.log("data", data);
+      });
+      setLasttenmatchwic(lastTenWicket);
+
+      querySnapshot8.forEach((doc) => {
+        const data = doc.data();
+        lastTeneconomyRate += data.economy_rate;
+        //console.log("data", data);
+      });
+      setLasttenavgeconomyRate(lastTeneconomyRate);
+
       // console.log(`Hi ${sum}`);
       // console.log(count);
       // console.log(sum / count);
@@ -282,10 +339,10 @@ export const PlayerProfile = () => {
                 <span>{results.playing_role}</span>
               </p>
             </div>
-            <div class="w-80 h-auto absolute bottom-0 right-10 ...">
-  {/* <img src={PlayerImg} alt="Logo" /> */}
-  <img src={results.image} alt="Logo" style={{ width: '100%', height: 'auto' }} />
-</div>
+            <div class="w-60 absolute bottom-0 right-10 ...">
+              {/* <img src={PlayerImg} alt="Logo" /> */}
+              <img src={results.image} alt="Logo" />
+            </div>
           </div>
 
           <div className="bg-gradient-to-r from-gray-500 to-slate-300 rounded-lg mx-20 mt-5 shadow-xl">
@@ -405,14 +462,6 @@ export const PlayerProfile = () => {
                   <td className="px-6 py-4 text-right">
                     {(avgstrikeRate2021 / batcount2021).toFixed(2)}
                   </td>
-                  {/* <td className="px-6 py-4 text-right">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td> */}
                 </tr>
                 <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <th
@@ -429,14 +478,22 @@ export const PlayerProfile = () => {
                   <td className="px-6 py-4 text-right">
                     {(avgstrikeRate2022 / batcount2022).toFixed(2)}
                   </td>
-                  {/* <td className="px-6 py-4 text-right">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td> */}
+                </tr>
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Last 10 matches
+                  </th>
+                  <td className="px-6 py-4">10</td>
+                  <td className="px-6 py-4">{lasttenmatch}</td>
+                  <td className="px-6 py-4">
+                    {(lasttenmatch / 10).toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 text-right">
+                    {(lasttenavgstrikeRate / 10).toFixed(2)}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -539,14 +596,23 @@ export const PlayerProfile = () => {
                   <td className="px-6 py-4 text-right">
                     {(avgeconomyRate2022 / bowcount2022).toFixed(2)}
                   </td>
-                  {/* <td className="px-6 py-4 text-right">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td> */}
+                </tr>
+
+                <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Last 10 matches
+                  </th>
+                  <td className="px-6 py-4">10</td>
+                  <td className="px-6 py-4">{lasttenmatchwic}</td>
+                  <td className="px-6 py-4">
+                    {(lasttenmatchwic / 10).toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 text-right">
+                    {(lasttenavgeconomyRate / 10).toFixed(2)}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -580,10 +646,13 @@ export const PlayerProfile = () => {
         >
           {photos.map((photo, index) => (
             <div className="photos" key={index}>
-                <img src={photo} alt={`Slide ${index + 1}`} style={{ border: '2px solid #ccc', borderRadius: '10px' }} />
+              <img
+                src={photo}
+                alt={`Slide ${index + 1}`}
+                style={{ border: "2px solid #ccc", borderRadius: "10px" }}
+              />
             </div>
-        ))}
-
+          ))}
         </Carousel>
 
         <div className="absolute top-0 left-0 right-0 flex justify-center mt-2">
