@@ -10,7 +10,11 @@ import {Footer } from "../components";
 export const BuyNow = () => {
   return (
     <>
-      <section id="hero">
+      <div className="bg-white min-h-screen">
+      <div className="container mx-auto mt-8 px-6">
+        <div className="bg-white rounded-lg shadow-xl p-8">
+          {/* Your existing component code here */}
+          <section id="hero">
         <div class="container flex flex-col-reverse items-center px-6 mx-auto mt-10 space-y-0 md:flex-row md:space-y-0">
           <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
             <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
@@ -105,6 +109,9 @@ export const BuyNow = () => {
           </div>
         </div>
       </section>
+        </div>
+      </div>
+    </div>
 
       <Footer />
     </>
