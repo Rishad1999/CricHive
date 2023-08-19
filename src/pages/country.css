@@ -121,4 +121,7 @@
   .Title{
     font-weight: bold;
   }
- 
+ /* Add this to your country.css file */
+.bg-white-800 {
+  flex-grow: 1;
+}

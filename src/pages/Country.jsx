@@ -24,89 +24,85 @@ export const Country = () => {
 
   return (
     <>
-      <div className="bg-white-800">
+      <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
+        <div className="col-span-3">
+          <div className="w-560 h-800">
+            <div className="bg-white rounded-lg mt-10 ml-10 mr-10 my-10">
+              <div className="PlayerbarItem">
+                <div className="grid-container h-128 my-10">
+                  <Link to="./india">
+                    <div className="grid-item px-8 mt-5">
+                      <img src={flag_IND} alt="" className="countryImg" />
+                      <span className="Title">INDIA</span>
+                    </div>
+                  </Link>
 
-        <div className="w-560 h-800">
-          <div className="bg-white rounded-lg mt-10 ml-10 mr-10">
-            <div className="PlayerbarItem">
-                  
-              <div className="grid-container">
-                
-                <Link to="./india">
-                  <div className="grid-item">
-                    <img src={flag_IND} alt="" className="countryImg" />
-                    <span className="Title">INDIA</span>
-                  </div>
-                </Link>
-                {/* <div className="grid-item">
-              <img src={flag_IND} alt="" className="countryImg" />
-              <span className="Title">INDIA</span>
-            </div> */}
-                <Link to="./srilanka">
-                  <div className="grid-item">
-                    <img src={flag_SL}  alt="" className="countryImg" />
-                    <span className="Title">SRI LANKA</span>
-                  </div>
-                </Link>
-                
-                <Link to="./aus">
-                  <div className="grid-item">
-                    <img src={flag_ASSIE} alt="" className="countryImg" />
-                    <span className="Title">AUSTRALIA</span>
-                  </div>
-                </Link>
+                  <Link to="./srilanka">
+                    <div className="grid-item px-8 mt-5">
+                      <img src={flag_SL} alt="" className="countryImg" />
+                      <span className="Title">SRI LANKA</span>
+                    </div>
+                  </Link>
 
-                <Link to="./newzealand">
-                  <div className="grid-item">
-                    <img src={flag_NEWZ} alt="" className="countryImg" />
-                    <span className="Title">NEW ZELAND</span>
-                  </div>
-                </Link>
+                  <Link to="./aus">
+                    <div className="grid-item px-8 mt-5">
+                      <img src={flag_ASSIE} alt="" className="countryImg" />
+                      <span className="Title">AUSTRALIA</span>
+                    </div>
+                  </Link>
 
-                <Link to="./sa">
-                  <div className="grid-item">
-                    <img src={flag_SA} alt="" className="countryImg" />
-                    <span className="Title">SOUTH AFRICA</span>
-                  </div>
-                </Link>
-              
-                <Link to="./west">
-                  <div className="grid-item">
-                    <img src={flag_WI} alt="" className="countryImg" />
-                    <span className="Title">WEST INDIES</span>
-                  </div>
-                </Link>            
+                  <Link to="./newzealand">
+                    <div className="grid-item">
+                      <img src={flag_NEWZ} alt="" className="countryImg" />
+                      <span className="Title">NEW ZELAND</span>
+                    </div>
+                  </Link>
 
-                <Link to="./afg">
-                  <div className="grid-item">
-                    <img src={flag_AFG} alt="" className="countryImg" />
-                    <span className="Title">AFGANISTAN</span>
-                  </div>
-                </Link>
+                  <Link to="./sa">
+                    <div className="grid-item">
+                      <img src={flag_SA} alt="" className="countryImg" />
+                      <span className="Title">SOUTH AFRICA</span>
+                    </div>
+                  </Link>
 
-                <Link to="./eng">
-                  <div className="grid-item">
-                    <img src={flag_ENG} alt="" className="countryImg" />
-                    <span className="Title">ENGLAND</span>
-                  </div>
-                </Link>
+                  <Link to="./west">
+                    <div className="grid-item">
+                      <img src={flag_WI} alt="" className="countryImg" />
+                      <span className="Title">WEST INDIES</span>
+                    </div>
+                  </Link>
 
-                <Link to="./pak">
-                  <div className="grid-item">
-                    <img src={flag_BAN} alt="" className="countryImg" />
-                    <span className="Title">PAKISTAN</span>
-                  </div>
-                </Link>
+                  <Link to="./afg">
+                    <div className="grid-item">
+                      <img src={flag_AFG} alt="" className="countryImg" />
+                      <span className="Title">AFGANISTAN</span>
+                    </div>
+                  </Link>
 
+                  <Link to="./eng">
+                    <div className="grid-item">
+                      <img src={flag_ENG} alt="" className="countryImg" />
+                      <span className="Title">ENGLAND</span>
+                    </div>
+                  </Link>
 
+                  <Link to="./pak">
+                    <div className="grid-item">
+                      <img src={flag_BAN} alt="" className="countryImg" />
+                      <span className="Title">PAKISTAN</span>
+                    </div>
+                  </Link>
+
+                  {/* <div className="grid-item"></div>
                 <div className="grid-item"></div>
-                <div className="grid-item"></div>
-                <div className="grid-item"></div>
+                <div className="grid-item"></div> */}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="bg-white-800"></div>
 
       <Footer />
     </>
