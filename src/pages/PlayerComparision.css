@@ -1,60 +1,59 @@
 .PlayerbarTitle {
-    animation: player-comparison 1s ease-in-out infinite;
-  }
-  
-  .PlayerbarItem img {
-    animation: player-img 1s ease-in-out infinite;
-  }
-  
+  animation: player-comparison 1s ease-in-out infinite;
+}
 
-  
- 
-  
-  .PlayerComparisonText {
-    animation: player-comparison-text 1s ease-in-out infinite;
-  }
-  
-  @keyframes player-comparison-text {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(10px);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+.PlayerbarItem img {
+  animation: player-img 1s ease-in-out infinite;
+}
 
-  .page-wrapper {
-    background-image: rgba(17, 20, 20, 0.956);
-    background-size: cover;
-    background-repeat: no-repeat;
+
+
+
+
+.PlayerComparisonText {
+  animation: player-comparison-text 1s ease-in-out infinite;
+}
+
+@keyframes player-comparison-text {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  .large-image {
-    width: 4000px; /* Set the desired width */
-    height: 1000px; /* Maintain the aspect ratio */
+  50% {
+    transform: translateX(10px);
+    opacity: 0.5;
   }
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(50%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
+}
+
+.page-wrapper {
+  background-image: rgba(17, 20, 20, 0.956);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.large-image {
+  width: 4000px; /* Set the desired width */
+  height: 1000px; /* Maintain the aspect ratio */
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animated-image {
   
-  .animated-image {
-    
-    width: 1600px; /* Set the desired width */
-    height: 600px;
-    border-radius: 10px;
-    
-  }
+  width: 1600px; /* Set the desired width */
+  height: 600px;
+  border-radius: 10px;
   
+}

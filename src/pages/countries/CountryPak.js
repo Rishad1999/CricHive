@@ -241,7 +241,7 @@ export const CountryPak = () => {
               <td className="px-6 py-4">{numwin2020}</td>
               <td className="px-6 py-4">{numloss2020}</td>
               <td className="px-6 py-4">{(((numwin2020)*100)/(numwin2020 + numloss2020)).toFixed(2)}%</td>
-              <td className="px-6 py-4 text-right">2</td>
+              <td className="px-6 py-4 text-right">3</td>
               <td className="px-6 py-4 text-right">Mohammad Hafeez</td>
               <td className="px-6 py-4 text-right">Haris Rauf</td>
               {/* <td className="px-6 py-4 text-right">
@@ -263,7 +263,7 @@ export const CountryPak = () => {
               <td className="px-6 py-4">{numwin2021}</td>
               <td className="px-6 py-4">{numloss2021}</td>
               <td className="px-6 py-4">{(((numwin2021)*100)/(numwin2021 + numloss2021)).toFixed(2)}%</td>
-              <td className="px-6 py-4 text-right">1</td>
+              <td className="px-6 py-4 text-right">5</td>
               <td className="px-6 py-4 text-right">Babar Azam</td>
               <td className="px-6 py-4 text-right">Haris Rauf</td>
               {/* <td className="px-6 py-4 text-right">

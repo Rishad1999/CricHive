@@ -255,7 +255,7 @@ export const CountryWes = () => {
               <td className="px-6 py-4">
                 {((numwin2020 * 100) / (numwin2020 + numloss2020)).toFixed(2)}%
               </td>
-              <td className="px-6 py-4 text-right">2</td>
+              <td className="px-6 py-4 text-right">9</td>
               <td className="px-6 py-4 text-right">L M P Simmons</td>
               <td className="px-6 py-4 text-right">Sheldon Cottrell</td>
               {/* <td className="px-6 py-4 text-right">
@@ -279,7 +279,7 @@ export const CountryWes = () => {
               <td className="px-6 py-4">
                 {((numwin2021 * 100) / (numwin2021 + numloss2021)).toFixed(2)}%
               </td>
-              <td className="px-6 py-4 text-right">1</td>
+              <td className="px-6 py-4 text-right">8</td>
               <td className="px-6 py-4 text-right">Nicholas Pooran</td>
               <td className="px-6 py-4 text-right">J O Holder</td>
               {/* <td className="px-6 py-4 text-right">
@@ -303,7 +303,7 @@ export const CountryWes = () => {
               <td className="px-6 py-4">
                 {((numwin2022 * 100) / (numwin2022 + numloss2022)).toFixed(2)}%
               </td>
-              <td className="px-6 py-4 text-right">3</td>
+              <td className="px-6 py-4 text-right">9</td>
               <td className="px-6 py-4 text-right">Nicholas Pooran</td>
               <td className="px-6 py-4 text-right">J O Holder</td>
               {/* <td className="px-6 py-4 text-right">

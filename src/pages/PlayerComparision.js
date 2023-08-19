@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./PlayerComparision.css";
+import "./PlayerComparision.css"
+//import "./playerProfile.css";
 import { SearchPlayer, Footer } from "../components";
 import Player1Img from "../assets/8.png";
 import Player2Img from "../assets/kholiProf.png";
@@ -30,12 +31,12 @@ export const PlayerComparision = () => {
   const [batcount, setBatcount] = useState([]);
   const [batcount2020, setBatcount2020] = useState([]);
   const [batcount2021, setBatcount2021] = useState([]);
-  const [batcount2022, setBatcount2022] = useState([]);  
+  const [batcount2022, setBatcount2022] = useState([]);
   const [avgstrikeRate, setAvgstrikeRate] = useState([]);
   const [avgstrikeRate2020, setAvgstrikeRate2020] = useState([]);
   const [avgstrikeRate2021, setAvgstrikeRate2021] = useState([]);
   const [avgstrikeRate2022, setAvgstrikeRate2022] = useState([]);
-  
+
   const [wicket, setWicket] = useState();
   const [wicket2020, setWicket2020] = useState();
   const [wicket2021, setWicket2021] = useState();
@@ -57,12 +58,12 @@ export const PlayerComparision = () => {
   const [p2batcount, p2setBatcount] = useState([]);
   const [p2batcount2020, p2setBatcount2020] = useState([]);
   const [p2batcount2021, p2setBatcount2021] = useState([]);
-  const [p2batcount2022, p2setBatcount2022] = useState([]);  
+  const [p2batcount2022, p2setBatcount2022] = useState([]);
   const [p2avgstrikeRate, p2setAvgstrikeRate] = useState([]);
   const [p2avgstrikeRate2020, p2setAvgstrikeRate2020] = useState([]);
   const [p2avgstrikeRate2021, p2setAvgstrikeRate2021] = useState([]);
   const [p2avgstrikeRate2022, p2setAvgstrikeRate2022] = useState([]);
-  
+
   const [p2wicket, p2setWicket] = useState();
   const [p2wicket2020, p2setWicket2020] = useState();
   const [p2wicket2021, p2setWicket2021] = useState();
@@ -76,11 +77,8 @@ export const PlayerComparision = () => {
   const [p2avgeconomyRate2021, p2setAvgeconomyRate2021] = useState([]);
   const [p2avgeconomyRate2022, p2setAvgeconomyRate2022] = useState([]);
 
-  
   const [selectedYear, setSelectedYear] = useState();
-  
-  
-  
+
   console.log("Wow", selectedYear);
 
   let p1runs2020 = 0;
@@ -184,7 +182,6 @@ export const PlayerComparision = () => {
           where("year", "==", 2022)
         )
       );
-      
 
       querySnapshot1.forEach((doc) => {
         const data = doc.data();
@@ -193,8 +190,6 @@ export const PlayerComparision = () => {
       });
       setTotalruns2020(p1runs2020);
       setBatcount2020(p1batMatchCount2020);
-
-      
 
       querySnapshot2.forEach((doc) => {
         const data = doc.data();
@@ -284,11 +279,9 @@ export const PlayerComparision = () => {
         p1economyRate2022 += data.economy_rate;
       });
       setAvgeconomyRate2022(p1economyRate2022);
-      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-
   };
 
   //////////////////////////////////////////////////////////
@@ -342,7 +335,6 @@ export const PlayerComparision = () => {
           where("year", "==", 2022)
         )
       );
-      
 
       querySnapshot1.forEach((doc) => {
         const data = doc.data();
@@ -430,14 +422,10 @@ export const PlayerComparision = () => {
         p2economyRate2022 += data.economy_rate;
       });
       p2setAvgeconomyRate2022(p2economyRate2022);
-      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-
   };
-
-  
 
   useEffect(() => {
     if (selectedYear === 2020) {
@@ -490,150 +478,157 @@ export const PlayerComparision = () => {
   }, [selectedYear]);
 
   return (
-    
     <>
-    <div className="page-wrapper">
-     
-    <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
-      <div className="mr-6 ml-1">
-        <SearchPlayer onSearchResults={handleSearchResults} />
-      </div>
-
-      <div className=""></div>
-
-      <div className="ml-6 mr-1">
-        <SearchPlayer onSearchResults={handleSearchResults1} />
-      </div>
-
-      
-    </div>
-
-    {(!player1 && !player2) && (
+      <div className="page-wrapper">
         <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
-          <div className="col-span-3">
-            <img src={fight} alt="../assets/fight.jpg" className="animated-image" />
+          <div className="mr-6 ml-1">
+            <SearchPlayer onSearchResults={handleSearchResults} />
+          </div>
+
+          <div className=""></div>
+
+          <div className="ml-6 mr-1">
+            <SearchPlayer onSearchResults={handleSearchResults1} />
           </div>
         </div>
-)}
-      
 
-      {player1 && (
-        <div className="mx-10 p-6">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2 h-16">
-              <div className="PlayerbarLeft">
-                <div className="PlayerbarItem">
-                  <span className="PlayerbarTitle">{player1.name}</span>
-                  <img className="w-112 h-96 mt-8 rounded-lg" 
-                  src={resultsP1.image} 
-                  alt="player1 image" />
-                </div>
-              </div>
+        {!player1 && !player2 && (
+          <div className="grid grid-cols-3 gap-4 mx-20 mt-4">
+            <div className="col-span-3">
+              <img
+                src={fight}
+                alt="../assets/fight.jpg"
+                className="animated-image"
+              />
             </div>
+          </div>
+        )}
 
-            <div className="">
-              <div className="">
-                <div className="flex flex-col items-center">
-                  <div className="relative inline-block w-48 mt-8">
-                    <select
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                      onChange={(e) =>
-                        setSelectedYear(parseInt(e.target.value))
-                      }
-                    >
-                      <option value="2022">2022</option>
-                      <option value="2021">2021</option>
-                      {/* <option value="2020">2020</option> */}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
-                        <path d="M10 12l-6-6h12l-6 6z" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="mt-8">
-                    <div className="text-center m-5 mt-6">
-                    
-                      <span className="text-2xl font-medium bg-emerald-100 p-3 rounded-lg">
-                        PLAYER COMPARISON
-                      </span>
-                      <img
-                        className="mt-7 mx-8"
-                        src={vsImg}
-                        alt="vs image"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {player2 ? (
-              <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2 h-16">
-                <div className="PlayerbarRight">
+        {player1 && (
+          <div className="mx-10 p-6">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="bg-gradient-to-r from-slate-300 to-slate-500 rounded-xl shadow-lg m-5 mt-2 h-16">
+                <div className="PlayerbarLeft">
                   <div className="PlayerbarItem">
-                    <span className="PlayerbarTitle">{player2.name}</span>
+                    <span className="PlayerbarTitle">{player1.name}</span>
                     <img
                       className="w-112 h-96 mt-8 rounded-lg"
-                      src={resultsP2.image}
-                      alt="player2 image"
+                      src={resultsP1.image}
+                      alt="player1 image"
                     />
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="bg-green-100 rounded-xl shadow-lg m-5 mt-2">
-                <div className="PlayerbarRight">
-                  <div className="PlayerbarItem">
-                    <span className="PlayerbarTitle">Player 2</span>
+
+              <div className="">
+                <div className="">
+                  <div className="flex flex-col items-center">
+                    <div className="relative inline-block w-48 mt-8">
+                      <select
+                        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                        onChange={(e) =>
+                          setSelectedYear(parseInt(e.target.value))
+                        }
+                      >
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        {/* <option value="2020">2020</option> */}
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg
+                          className="fill-current h-4 w-4"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M10 12l-6-6h12l-6 6z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className="mt-8">
+                      <div className="text-center m-5 mt-6">
+                        {/* <span className="text-2xl font-medium bg-emerald-100 p-3 rounded-lg">
+                        PLAYER COMPARISON
+                      </span> */}
+                        <img className="mt-7 mx-8" src={vsImg} alt="vs image" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            )}
 
-            <div className="text-right flex flex-col">
-              <div className="m-5">
-                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                  {player1.name}
-                </span>
-              </div>
-              <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
+              {player2 ? (
+                <div className="bg-gradient-to-r from-slate-300 to-slate-500 rounded-xl shadow-lg m-5 mt-2 h-16">
+                  <div className="PlayerbarRight">
+                    <div className="PlayerbarItem">
+                      <span className="PlayerbarTitle">{player2.name}</span>
+                      <img
+                        className="w-112 h-96 mt-8 rounded-lg"
+                        src={resultsP2.image}
+                        alt="player2 image"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-gradient-to-r from-slate-300 to-slate-500 rounded-xl shadow-lg m-5 mt-2">
+                  <div className="PlayerbarRight">
+                    <div className="PlayerbarItem">
+                      <span className="PlayerbarTitle">Player 2</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="text-right flex flex-col">
+                <div className="m-5">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                    {player1.name}
+                  </span>
+                </div>
+                <div className="m-5">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
                     {player1.born}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
                     {player1.age}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
                     {player1.batting_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
                     {player1.bowling_style}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
                     {player1.playing_role}
                   </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">{wicket2020}</span>
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-2xl">
+                    {wicket2020}
+                  </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">{(avgeconomyRate2020/bowcount2020).toFixed(2)}</span>
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-2xl">
+                    {(avgeconomyRate2020 / bowcount2020).toFixed(2)}
+                  </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">{totalruns2020}</span>
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-2xl">
+                    {totalruns2020}
+                  </span>
                 </div>
                 <div className="m-5">
-                  <span className="p-2 rounded-lg shadow-2xl">{(avgstrikeRate2020/batcount2020).toFixed(2)}</span>
+                  <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-2xl">
+                    {(avgstrikeRate2020 / batcount2020).toFixed(2)}
+                  </span>
                 </div>
                 {/* <div className="m-5">
                   <span className="p-2 rounded-lg shadow-2xl">-</span>
@@ -641,60 +636,60 @@ export const PlayerComparision = () => {
                 <div className="m-5">
                   <span className="p-2 rounded-lg shadow-2xl">-</span>
                 </div> */}
-            </div>
-            <div>
-            <div className="text-center flex flex-col">
-              <div className="m-5">
-                <span className=" p-2  bg-green-100 rounded-lg shadow-xl">
-                  FULL NAME
-                </span>
               </div>
-              <div className="m-5">
-                <span className=" p-2  bg-green-100 rounded-lg shadow-xl">
-                  BORN
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  AGE
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  BATTING STYLE
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  BOWLING STYLE
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  PLAYING ROLE
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  WICKETS TAKEN
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  ECONOMY RATE
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2  bg-green-100 rounded-lg shadow-xl">
-                  RUN SCORED
-                </span>
-              </div>
-              <div className="m-5">
-                <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                  STRIKE RATE
-                </span>
-              </div>
-              {/* <div className="m-5">
+              <div>
+                <div className="text-center flex flex-col">
+                  <div className="m-5">
+                    <span className=" p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      FULL NAME
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className=" p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      BORN
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      AGE
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      BATTING STYLE
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      BOWLING STYLE
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      PLAYING ROLE
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500  bg-green-100 rounded-lg shadow-xl">
+                      WICKETS TAKEN
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      ECONOMY RATE
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      RUN SCORED
+                    </span>
+                  </div>
+                  <div className="m-5">
+                    <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                      STRIKE RATE
+                    </span>
+                  </div>
+                  {/* <div className="m-5">
                 <span className="p-2 bg-green-100 rounded-lg shadow-xl">
                   BATTING RANKING
                 </span>
@@ -705,7 +700,7 @@ export const PlayerComparision = () => {
                 </span>
               </div> */}
 
-              {/* <h3 className="m-5  bg-red-100 rounded-lg shadow-2xl">
+                  {/* <h3 className="m-5  bg-red-100 rounded-lg shadow-2xl">
                 FULL NAME
               </h3>
               <h3 className="m-5">BORN</h3>
@@ -719,69 +714,76 @@ export const PlayerComparision = () => {
               <h3 className="m-5">STRIKE RATE</h3>
               <h3 className="m-5">WICKETS TAKEN</h3>
               <h3 className="m-5">CATCHES TAKEN</h3> */}
-            </div>
-          </div>
-            {player2 && (
-              <div>
-                <div className="text-left flex flex-col">
-                  <div className="m-5">
-                    <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                      {player2.name}
-                    </span>
-                  </div>
-                  <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                    {player2.born}
-                  </span>
                 </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                    {player2.age}
-                  </span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                    {player2.batting_style}
-                  </span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                    {player2.bowling_style}
-                  </span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">
-                    {player2.playing_role}
-                  </span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{p2wicket2020}</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{(p2avgeconomyRate2020/p2bowcount2020).toFixed(2)}</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{p2totalruns2020}</span>
-                </div>
-                <div className="m-5">
-                  <span className="p-2 bg-green-100 rounded-lg shadow-xl">{(p2avgstrikeRate2020/p2batcount2020).toFixed(2)}</span>
-                </div>
-                {/* <div className="m-5">
+              </div>
+              {player2 && (
+                <div>
+                  <div className="text-left flex flex-col">
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.name}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.born}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.age}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.batting_style}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.bowling_style}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {player2.playing_role}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {p2wicket2020}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {(p2avgeconomyRate2020 / p2bowcount2020).toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {p2totalruns2020}
+                      </span>
+                    </div>
+                    <div className="m-5">
+                      <span className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 rounded-lg shadow-xl">
+                        {(p2avgstrikeRate2020 / p2batcount2020).toFixed(2)}
+                      </span>
+                    </div>
+                    {/* <div className="m-5">
                   <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div>
                 <div className="m-5">
                   <span className="p-2 bg-green-100 rounded-lg shadow-xl">-</span>
                 </div> */}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <Footer />
-    </div>
-      
+        <Footer />
+      </div>
     </>
   );
 };
