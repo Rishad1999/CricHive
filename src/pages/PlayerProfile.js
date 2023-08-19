@@ -40,6 +40,8 @@ export const PlayerProfile = () => {
   const [avgstrikeRate2020, setAvgstrikeRate2020] = useState([]);
   const [avgstrikeRate2021, setAvgstrikeRate2021] = useState([]);
   const [avgstrikeRate2022, setAvgstrikeRate2022] = useState([]);
+  const [lasttenmatch, setLasttenmatch] = useState([]);
+  const [lasttenavgstrikeRate, setLasttenavgstrikeRate] = useState([]);
 
   // const [count, setCount] = useState();
   const [wicket2020, setWicket2020] = useState();
@@ -51,6 +53,9 @@ export const PlayerProfile = () => {
   const [avgeconomyRate2020, setAvgeconomyRate2020] = useState([]);
   const [avgeconomyRate2021, setAvgeconomyRate2021] = useState([]);
   const [avgeconomyRate2022, setAvgeconomyRate2022] = useState([]);
+  const [lasttenmatchwic, setLasttenmatchwic] = useState([]);
+  const [lasttenavgeconomyRate, setLasttenavgeconomyRate] = useState([]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -94,6 +99,10 @@ export const PlayerProfile = () => {
   let strikeRate2020 = 0;
   let strikeRate2021 = 0;
   let strikeRate2022 = 0;
+  let lastTen = 0;
+  let lastTenstrikeRate = 0;
+
+
 
   let wic2020 = 0;
   let wic2021 = 0;
@@ -104,6 +113,10 @@ export const PlayerProfile = () => {
   let economyRate2020 = 0;
   let economyRate2021 = 0;
   let economyRate2022 = 0;
+  let lastTenWicket = 0;
+  let lastTeneconomyRate = 0;
+
+
 
   var count = 0;
   let wic = 0;
